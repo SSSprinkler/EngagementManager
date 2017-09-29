@@ -155,6 +155,7 @@ function readFile(path,backupPath,emptyResponse,type) {
                     log.warn(log._("storage.localfilesystem.empty",{type:type}));
                     try {
                         // If the local file system is empty. Try Harding Point Cloud
+                        debug.write("HardingPointStorage.readFile",path,"");
                         HardingPointAPI.nodered_readFile(path,function(error,data){
                             if (error){
                                 var backupStat = fs.statSync(backupPath);
