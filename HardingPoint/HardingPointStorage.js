@@ -203,7 +203,7 @@ function readFile(path,backupPath,emptyResponse,type) {
                     debug.write("***** HardingPointStorage.readFile.nodered_readFile",path,"");
                     if (!data){
                         debug.write("***** HardingPointStorage.readFile.nodered_readFile","Loaded File","");
-                        return resolve(parseJSON(data))
+                        return resolve(data)
                     }else{
                         debug.write("***** HardingPointStorage.readFile.nodered_readFile","Did NOT Find File","");
                         resolve(emptyResponse);
