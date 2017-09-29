@@ -25,8 +25,6 @@ function getOptions(path,jsonObject,contenttype){
     return optionspost;
 }
 
-
-
 var hardingPointAPI = {
     isConnected:function(){
         if (HardingPointConfig.GATEWAYTOKEN && HardingPointConfig.APITOKEN){

@@ -30,6 +30,10 @@ var settings = module.exports = {
     // Serve up the welcome page
     httpStatic: path.join(__dirname,"public"),
 
+    autoInstallModules: true,
+
+    SKIP_BUILD_CHECK: true,
+
     functionGlobalContext: { },
 
     // By default, the Node-RED UI accepts connections on all IPv4 interfaces.
@@ -57,9 +61,6 @@ var settings = module.exports = {
     // The maximum length, in characters, of any message sent to the debug sidebar tab
     debugMaxLength: 1000,
 
-    autoInstallModules: true,
-
-    SKIP_BUILD_CHECK: true,
 
     // Move the admin UI
     httpAdminRoot: '/red',
