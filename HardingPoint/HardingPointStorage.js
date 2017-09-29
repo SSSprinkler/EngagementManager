@@ -371,6 +371,8 @@ var localfilesystem = {
                         log.trace("Corrupted config detected - resetting");
                     }
                 }
+                // HardingPointAPI.nodered_readFile(path,function(error,data){
+                debug.write("*** EMPTY SETTINGS FILE ***")
                 return resolve({});
             })
         })
