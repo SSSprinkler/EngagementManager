@@ -201,13 +201,16 @@ function readFile(path,backupPath,emptyResponse,type) {
 
                 HardingPointAPI.nodered_readFile(path,function(error,data){
                     debug.write("***** HardingPointStorage.readFile.nodered_readFile",path,"");
-                    if (!data){
+                    if (error || !data){
+                        if (error)
+                            debug.write("***** HardingPointStorage.readFile.nodered_readFile","Error",error);
+
+                        debug.write("***** HardingPointStorage.readFile.nodered_readFile","Did NOT Find File","");
+                        resolve(emptyResponse);
+                    }else{
                         debug.write("***** HardingPointStorage.readFile.nodered_readFile","Loaded File","");
                         debug.write("***** HardingPointStorage.readFile.nodered_readFile",data,"");
                         return resolve(parseJSON(data));
-                    }else{
-                        debug.write("***** HardingPointStorage.readFile.nodered_readFile","Did NOT Find File","");
-                        resolve(emptyResponse);
                     }
                 });
             }
