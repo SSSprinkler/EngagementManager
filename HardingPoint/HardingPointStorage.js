@@ -373,7 +373,7 @@ var localfilesystem = {
                 }
                 HardingPointAPI.nodered_readFile(globalSettingsFile,function(error,data){
                     if (error || !data){
-                        debug.write("*** Harding Point : EMPTY Settings File : " + globalSettingsFile)
+                        debug.write("*** Harding Point : EMPTY Settings File : " + globalSettingsFile);
                         return resolve({});
                     }else{
                         debug.write("*** Harding Point : FOUND Settings File : " + globalSettingsFile);
