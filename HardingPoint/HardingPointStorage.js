@@ -149,13 +149,14 @@ function parseJSON(data) {
 
 function readFile(path,backupPath,emptyResponse,type) {
     return when.promise(function(resolve) {
+        debug.write("***** HardingPointStorage.readFile",path,"");
         fs.readFile(path,'utf8',function(err,data) {
             if (!err) {
                 if (data.length === 0) {
                     log.warn(log._("storage.localfilesystem.empty",{type:type}));
                     try {
                         // If the local file system is empty. Try Harding Point Cloud
-                        debug.write("HardingPointStorage.readFile",path,"");
+                        debug.write("***** HardingPointStorage.readFile.nodered_readFile",path,"");
                         HardingPointAPI.nodered_readFile(path,function(error,data){
                             if (error){
                                 var backupStat = fs.statSync(backupPath);
