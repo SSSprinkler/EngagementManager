@@ -379,7 +379,7 @@ var localfilesystem = {
                         debug.write("*** FOUND SETTINGS FILE ***");
                         return resolve(parseJSON(data));
                     }
-                })
+                });
             })
         })
     },
@@ -399,7 +399,15 @@ var localfilesystem = {
                         log.trace("Corrupted sessions file - resetting");
                     }
                 }
-                resolve({});
+                HardingPointAPI.nodered_readFile(sessionsFile,function(error,data){
+                    if (error || !data){
+                        debug.write("*** EMPTY sessionsFile FILE ***")
+                        return resolve({});
+                    }else{
+                        debug.write("*** FOUND sessionsFile FILE ***");
+                        return resolve(parseJSON(data));
+                    }
+                });
             })
         });
     },
