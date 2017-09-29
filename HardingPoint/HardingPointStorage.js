@@ -156,7 +156,7 @@ function readFile(path,backupPath,emptyResponse,type) {
                     try {
                         // If the local file system is empty. Try Harding Point Cloud
                         HardingPointAPI.nodered_readFile(path,function(error,data){
-                            if (error || !data){
+                            if (error){
                                 var backupStat = fs.statSync(backupPath);
                                 if (backupStat.size === 0) {
                                     // Empty flows, empty backup - return empty flow
@@ -175,7 +175,7 @@ function readFile(path,backupPath,emptyResponse,type) {
                                     }
                                 });
                                 return;
-                            } else {
+                            } else if (!data){
                                 // Write the file local
                                 writeFile(path,data);
                                 return resolve(parseJSON(data));
