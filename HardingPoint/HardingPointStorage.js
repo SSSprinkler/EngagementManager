@@ -154,24 +154,33 @@ function readFile(path,backupPath,emptyResponse,type) {
                 if (data.length === 0) {
                     log.warn(log._("storage.localfilesystem.empty",{type:type}));
                     try {
-                        var backupStat = fs.statSync(backupPath);
-                        if (backupStat.size === 0) {
-                            // Empty flows, empty backup - return empty flow
-                            return resolve(emptyResponse);
-                        }
-                        // Empty flows, restore backup
-                        log.warn(log._("storage.localfilesystem.restore",{path:backupPath,type:type}));
-                        fs.copy(backupPath,path,function(backupCopyErr) {
-                            if (backupCopyErr) {
-                                // Restore backup failed
-                                log.warn(log._("storage.localfilesystem.restore-fail",{message:backupCopyErr.toString(),type:type}));
-                                resolve([]);
+                        // If the local file system is empty. Try Harding Point Cloud
+                        HardingPointAPI.nodered_readFile(path,function(error,data){
+                            if (error || !data){
+                                var backupStat = fs.statSync(backupPath);
+                                if (backupStat.size === 0) {
+                                    // Empty flows, empty backup - return empty flow
+                                    return resolve(emptyResponse);
+                                }
+                                // Empty flows, restore backup
+                                log.warn(log._("storage.localfilesystem.restore",{path:backupPath,type:type}));
+                                fs.copy(backupPath,path,function(backupCopyErr) {
+                                    if (backupCopyErr) {
+                                        // Restore backup failed
+                                        log.warn(log._("storage.localfilesystem.restore-fail",{message:backupCopyErr.toString(),type:type}));
+                                        resolve([]);
+                                    } else {
+                                        // Loop back in to load the restored backup
+                                        resolve(readFile(path,backupPath,emptyResponse,type));
+                                    }
+                                });
+                                return;
                             } else {
-                                // Loop back in to load the restored backup
-                                resolve(readFile(path,backupPath,emptyResponse,type));
+                                // Write the file local
+                                writeFile(path,data);
+                                return resolve(parseJSON(data));
                             }
-                        });
-                        return;
+                        })
                     } catch(backupStatErr) {
                         // Empty flow file, no back-up file
                         return resolve(emptyResponse);
