@@ -371,13 +371,12 @@ var localfilesystem = {
                         log.trace("Corrupted config detected - resetting");
                     }
                 }
-
                 HardingPointAPI.nodered_readFile(globalSettingsFile,function(error,data){
                     if (error || !data){
                         debug.write("*** EMPTY SETTINGS FILE ***")
                         return resolve({});
                     }else{
-                        debug.write("*** FOUND SETTINGS FILE ***" + data);
+                        debug.write("*** FOUND SETTINGS FILE ***");
                         return resolve(parseJSON(data));
                     }
                 })
