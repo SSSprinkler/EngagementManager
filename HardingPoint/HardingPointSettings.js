@@ -22,6 +22,13 @@ module.exports = {
     // the tcp port that the Node-RED web server is listening on
     uiPort: process.env.PORT || 1880,
 
+    nodesDir: path.join(__dirname,"nodes"),
+
+    // Serve up the welcome page
+    httpStatic: path.join(__dirname,"public"),
+
+    functionGlobalContext: { },
+
     // By default, the Node-RED UI accepts connections on all IPv4 interfaces.
     // The following property can be used to listen on a specific interface. For
     // example, the following would only allow connections from the local machine.
@@ -75,6 +82,9 @@ module.exports = {
     // node-red from being able to decrypt your existing credentials and they will be
     // lost.
     //credentialSecret: "a-secret-key",
+
+    // Disbled Credential Secret
+    credentialSecret: false,
 
     // By default, all user data is stored in the Node-RED install directory. To
     // use a different location, the following property can be used
@@ -156,10 +166,11 @@ module.exports = {
     // in the HTTP nodes.
     // See https://github.com/troygoode/node-cors#configuration-options for
     // details on its contents. The following is a basic permissive set of options:
-    //httpNodeCors: {
-    //    origin: "*",
-    //    methods: "GET,PUT,POST,DELETE"
-    //},
+
+    httpNodeCors: {
+        origin: "*",
+        methods: "GET,PUT,POST,DELETE"
+    },
 
     // If you need to set an http proxy please set an environment variable
     // called http_proxy (or HTTP_PROXY) outside of Node-RED in the operating system.
@@ -236,6 +247,40 @@ module.exports = {
             metrics: true,
             // Whether or not to include audit events in the log output
             audit: true
+        }
+    }
+}
+
+if (process.env.NODE_RED_USERNAME && process.env.NODE_RED_PASSWORD) {
+    settings.adminAuth = {
+        type: "credentials",
+        users: function(username) {
+            if (process.env.NODE_RED_USERNAME == username) {
+                return when.resolve({username:username,permissions:"*"});
+            } else {
+                if (username.toLowerCase()=="readonly"){
+                    return when.resolve({username:username,permissions:"read"});
+                }
+                else{
+                    return when.resolve(null);
+                }
+            }
+        },
+        //default: {
+        //    permissions: "read"
+        //},
+        authenticate: function(username, password) {
+            if (process.env.NODE_RED_USERNAME == username &&
+                process.env.NODE_RED_PASSWORD == password) {
+                return when.resolve({username:username,permissions:"*"});
+            } else {
+                if (username.toLowerCase()=="readonly" && password.toLowerCase()=="readonly"){
+                    return when.resolve({username:username,permissions:"read"});
+                }
+                else{
+                    return when.resolve(null);
+                }
+            }
         }
     }
 }
