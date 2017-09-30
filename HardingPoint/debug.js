@@ -17,7 +17,7 @@ function writeoutput(source,output,err){
         ourputString += " ";
         ourputString += err;
     }
-    if (outputFlag) console.log(ourputString);
+    if (outputFlag) console.log("Harding Point (Debug) : " + ourputString);
 };
 
 

@@ -1,6 +1,8 @@
 var https = require('https');
 
 var HardingPointConfig = require("./HardingPointConfig.js");
+var debug = require("./debug.js");
+
 const hardingPointAPIGet = HardingPointConfig.APIURL + HardingPointConfig.GET;
 const hardingPointAPISave = HardingPointConfig.APIURL + HardingPointConfig.SAVE;
 
@@ -94,8 +96,8 @@ var hardingPointAPI = {
     savefile: function(filename, filedata, callback){
         var jsonObject = "{\"filename\":\"" + this.parseFileName(filename) + "\",\"filedata\":\"" + JSON.stringify(filedata).replace(/(")/g, "\\\"") + "\"}";
         var optionspost = getOptions(HardingPointConfig.SAVE,jsonObject,'application/json');
-        console.log("savefile: " + jsonObject);
-        console.log("savefile: " + filename);
+        // console.log("savefile: " + jsonObject);
+        debug.write("SaveFile", "Filename: " + filename);
         var reqPost = https.request(optionspost, function(res) {
             // console.log('statusCode:', res.statusCode);
             // console.log('headers:', res.headers);

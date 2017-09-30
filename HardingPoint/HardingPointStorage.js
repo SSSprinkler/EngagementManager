@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 IBM Corp.
+ * Copyright 2017 Harding Point
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 
 var HardingPointConfig = require("./HardingPointConfig.js");
 var HardingPointAPI = require("./HardingPointAPI.js");
+var debug = require("./debug.js");
 
 var when = require('when');
 var util = require('util');
@@ -129,6 +130,7 @@ function getFlows() {
             if (error.toString().indexOf("File Empty")!=-1){
                 defer.resolve([]);
             }else{
+                debug.outputiferror("HardingPointStorage.getFlows","HardingPointAPI.getfile",error);
                 defer.reject(error);
             }
         }else{
@@ -143,12 +145,11 @@ function getFlows() {
 }
 
 function saveFlows(flows) {
-    console.log("saveFlows" + JSON.stringify(flows));
     var defer = when.defer();
     HardingPointAPI.savefile("flows.json",flows,function(error,data){
         if (error){
-            console.log("saveFlows Error : " + error);
-            defer.reject(err);
+            debug.outputiferror("HardingPointStorage.saveFlows","HardingPointAPI.savefile",error);
+            defer.reject(error);
         }
         else
             defer.resolve();
@@ -163,6 +164,7 @@ function getCredentials() {
             if (error.toString().indexOf("File Empty")!=-1){
                 defer.resolve({});
             }else{
+                debug.outputiferror("HardingPointStorage.getCredentials","HardingPointAPI.getfile",error);
                 defer.reject(error);
             }
         }else{
@@ -179,9 +181,10 @@ function getCredentials() {
 function saveCredentials(credentials) {
     var defer = when.defer();
     HardingPointAPI.savefile("credentials.json",credentials,function(error,data){
-        if (error)
-            defer.reject(err);
-        else
+        if (error){
+            debug.outputiferror("HardingPointStorage.saveCredentials","HardingPointAPI.savefile",error);
+            defer.reject(error);
+        }else
             defer.resolve();
     });
     return defer.promise;
@@ -194,6 +197,7 @@ function getSettings () {
             if (error.toString().indexOf("File Empty")!=-1){
                 defer.resolve({});
             }else{
+                debug.outputiferror("HardingPointStorage.getSettings","HardingPointAPI.getfile",error);
                 defer.reject(error);
             }
         }else{
@@ -210,9 +214,10 @@ function getSettings () {
 function saveSettings (settings) {
     var defer = when.defer();
     HardingPointAPI.savefile("settings.json",settings,function(error,data){
-        if (error)
-            defer.reject(err);
-        else
+        if (error){
+            debug.outputiferror("HardingPointStorage.saveSettings","HardingPointAPI.savefile",error);
+            defer.reject(error);
+        }else
             defer.resolve();
     });
     return defer.promise;
@@ -257,6 +262,7 @@ function getFlow(fn) {
             if (error.toString().indexOf("File Empty")!=-1){
                 defer.resolve({});
             }else{
+                debug.outputiferror("HardingPointStorage.getFlow","HardingPointAPI.getfile",error);
                 defer.reject(error);
             }
         }else{
@@ -273,9 +279,10 @@ function getFlow(fn) {
 function saveFlow(fn,data) {
     var defer = when.defer();
     HardingPointAPI.savefile("Flow-" + fn, data, function(error,data){
-        if (error)
-            defer.reject(err);
-        else
+        if (error){
+            debug.outputiferror("HardingPointStorage.saveFlow","HardingPointAPI.savefile",error);
+            defer.reject(error);
+        }else
             defer.resolve();
     });
     return defer.promise;
