@@ -92,9 +92,10 @@ var hardingPointAPI = {
         reqPost.end();
     },
     savefile: function(filename, filedata, callback){
-        var jsonObject = "{\"filename\":\"" + filename + "\",\"filedata\":" + JSON.stringify(filedata) + "}";
+        var jsonObject = "{\"filename\":\"" + this.parseFileName(filename) + "\",\"filedata\":\"" + JSON.stringify(filedata).replace(/(")/g, "\\\"") + "\"}";
         var optionspost = getOptions(HardingPointConfig.SAVE,jsonObject,'application/json');
-        // console.log("savefile: " + jsonObject);
+        console.log("savefile: " + jsonObject);
+        console.log("savefile: " + filename);
         var reqPost = https.request(optionspost, function(res) {
             // console.log('statusCode:', res.statusCode);
             // console.log('headers:', res.headers);
@@ -109,6 +110,7 @@ var hardingPointAPI = {
             });
         });
         reqPost.on('error', function(e) {
+            console.log('Error: ' + e);
             callback(e, "");
         });
         reqPost.write(jsonObject);
