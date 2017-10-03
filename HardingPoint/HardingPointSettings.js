@@ -255,7 +255,7 @@ var settings = module.exports = {
     }
 }
 
-if (process.env.NODE_RED_USERNAME && process.env.NODE_RED_PASSWORD) {
+if (process.env.ENGAGEMENTGRAPH_ADMINUSER && process.env.ENGAGEMENTGRAPH_ADMINPWD) {
     settings.adminAuth = {
         type: "credentials",
         users: function(username) {
