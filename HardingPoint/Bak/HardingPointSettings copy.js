@@ -212,7 +212,7 @@ var settings = module.exports = {
     //    //   - reason: if result is false, the HTTP reason string to return
     //},
 
-    storageModule: require("./HardingPointStorage"),
+    storageModule: require("../HardingPointStorage"),
 
     // Anything in this hash is globally available to all functions.
     // It is accessed as context.global.

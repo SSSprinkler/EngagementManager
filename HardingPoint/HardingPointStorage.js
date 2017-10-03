@@ -25,82 +25,6 @@ var settings;
 var HardingPointConfig;
 var appname;
 
-function jconv(credentials) {
-    var jconvs = {};
-    for (id in credentials) {
-        jconvs[id.replace("_", ".")] = credentials[id];
-    }
-    return jconvs;
-}
-
-function bconv(credentials) {
-    var bconvs = {};
-    for (id in credentials) {
-        bconvs[id.replace(".", "_")] = credentials[id];
-    }
-    return bconvs;
-}
-
-function db() {
-    return when.promise(function(resolve,reject,notify) {
-        if (!HardingPointConfig.APITOKEN && HardingPointConfig.GATEWAYTOKEN) {
-            resolve(HardingPointConfig);
-        } else {
-            resolve(HardingPointConfig);
-        }
-    });
-}
-
-function collection() {
-    return when.promise(function(resolve,reject,notify) {
-        db().then(function(db) {
-            db.collection(settings.mongoCollection||"nodered",function(err,_collection) {
-                if (err) {
-                    util.log("Mongo DB error:"+err);
-                    reject(err);
-                } else {
-                    resolve(_collection);
-                }
-            });
-        }).otherwise(function (err) {
-            reject(err);
-        })
-    });
-}
-
-function libCollection() {
-    return when.promise(function(resolve,reject,notify) {
-        db().then(function(db) {
-            db.collection(settings.mongoCollection||"nodered"+"-lib",function(err,_collection) {
-                if (err) {
-                    util.log("Mongo DB error:"+err);
-                    reject(err);
-                } else {
-                    resolve(_collection);
-                }
-            });
-        }).otherwise(function (err) {
-            reject(err);
-        })
-    });
-}
-
-function close() {
-    return when.promise(function(resolve,reject,notify) {
-        if (mongodb) {
-            mongodb.close(true, function(err,result) {
-                if (err) {
-                    util.log("Mongo DB error:"+err);
-                    reject(err);
-                } else {
-                    resolve();
-                }
-            })
-            mongodb = null;
-        }
-    });
-}
-
 function timeoutWrap(func) {
     return when.promise(function(resolve,reject,notify) {
         var promise = func().timeout(5000,"timeout");
@@ -111,11 +35,11 @@ function timeoutWrap(func) {
         promise.otherwise(function(err) {
             console.log("TIMEOUT: ",func.name);
             if (err == "timeout") {
-                close().then(function() {
+                //close().then(function() {
                     resolve(func());
-                }).otherwise(function(err) {
-                    reject(err);
-                });
+                //}).otherwise(function(err) {
+                //    reject(err);
+                //});
             } else {
                 reject(err);
             }
@@ -223,6 +147,118 @@ function saveSettings (settings) {
     return defer.promise;
 }
 
+function getFlow(fn) {
+    var defer = when.defer();
+    HardingPointAPI.getfile("settings.json",function(error,data){
+        if (error) {
+            if (error.toString().indexOf("File Empty")!=-1){
+                defer.resolve({});
+            }else{
+                debug.outputiferror("HardingPointStorage.getFlow","HardingPointAPI.getfile",error);
+                defer.reject(error);
+            }
+        }else{
+            if (data){
+                defer.resolve(JSON.parse(data));
+            }else{
+                defer.resolve({});
+            }
+        }
+    });
+    return defer.promise;
+}
+
+function saveFlow(fn,data) {
+    var defer = when.defer();
+    HardingPointAPI.savefile("Flow-" + fn, data, function(error,data){
+        if (error){
+            debug.outputiferror("HardingPointStorage.saveFlow","HardingPointAPI.savefile",error);
+            defer.reject(error);
+        }else
+            defer.resolve();
+    });
+    return defer.promise;
+}
+
+function getAllFlows() {
+    var defer = when.defer();
+    HardingPointAPI.getfile("flows.json",function(error,data){
+        if (error) {
+            if (error.toString().indexOf("File Empty")!=-1){
+                defer.resolve([]);
+            }else{
+                debug.outputiferror("HardingPointStorage.getAllFlows","HardingPointAPI.getfile",error);
+                defer.reject(error);
+            }
+        }else{
+            if (data){
+                defer.resolve(JSON.parse("{[" + data + "]}"));
+            }else{
+                defer.resolve({});
+            }
+        }
+    });
+    return defer.promise;
+}
+
+
+var HardingPointStorage = {
+    init: function(_settings) {
+        settings = _settings;
+        appname = settings.mongoAppname || require('os').hostname();
+        // return db();
+    },
+    getFlows: function() {
+        return timeoutWrap(getFlows);
+    },
+    saveFlows: function(flows) {
+        return timeoutWrap(function(){return saveFlows(flows);});
+    },
+
+    getCredentials: function() {
+        return timeoutWrap(getCredentials);
+    },
+
+    saveCredentials: function(credentials) {
+        return timeoutWrap(function(){return saveCredentials(credentials);});
+    },
+
+    getSettings: function() {
+        return timeoutWrap(function() { return getSettings();});
+    },
+
+    saveSettings: function(data) {
+        return timeoutWrap(function() { return saveSettings(data);});
+    },
+
+    getFlow: function(fn) {
+        return timeoutWrap(function() { return getFlow(fn);});
+    },
+
+    saveFlow: function(fn,data) {
+        return timeoutWrap(function() { return saveFlow(fn,data);});
+    }
+
+    /*
+    getAllFlows: function() {
+        console.log("@@ getAllFlows: ");
+        // return timeoutWrap(getAllFlows);
+    },
+    getLibraryEntry: function(type,path) {
+        // console.log("@@ getLibraryEntry: " + type);
+        return timeoutWrap(function() { return getLibraryEntry(type,path);});
+    },
+    saveLibraryEntry: function(type,path,meta,body) {
+        // console.log("@@ saveLibraryEntry: " + path);
+        return timeoutWrap(function() { return saveLibraryEntry(type,path,meta,body);});
+    }
+    */
+};
+
+module.exports = HardingPointStorage;
+
+
+/*
 function getAllFlows() {
     var defer = when.defer();
     libCollection().then(function(libCollection) {
@@ -255,37 +291,64 @@ function getAllFlows() {
     return defer.promise;
 }
 
-function getFlow(fn) {
-    var defer = when.defer();
-    HardingPointAPI.getfile("settings.json",function(error,data){
-        if (error) {
-            if (error.toString().indexOf("File Empty")!=-1){
-                defer.resolve({});
-            }else{
-                debug.outputiferror("HardingPointStorage.getFlow","HardingPointAPI.getfile",error);
-                defer.reject(error);
-            }
-        }else{
-            if (data){
-                defer.resolve(JSON.parse(data));
-            }else{
-                defer.resolve({});
-            }
-        }
-    });
-    return defer.promise;
+function jconv(credentials) {
+    var jconvs = {};
+    for (id in credentials) {
+        jconvs[id.replace("_", ".")] = credentials[id];
+    }
+    return jconvs;
 }
 
-function saveFlow(fn,data) {
-    var defer = when.defer();
-    HardingPointAPI.savefile("Flow-" + fn, data, function(error,data){
-        if (error){
-            debug.outputiferror("HardingPointStorage.saveFlow","HardingPointAPI.savefile",error);
-            defer.reject(error);
-        }else
-            defer.resolve();
+function bconv(credentials) {
+    var bconvs = {};
+    for (id in credentials) {
+        bconvs[id.replace(".", "_")] = credentials[id];
+    }
+    return bconvs;
+}
+
+function db() {
+    return when.promise(function(resolve,reject,notify) {
+        if (!HardingPointConfig.APITOKEN && HardingPointConfig.GATEWAYTOKEN) {
+            resolve(HardingPointConfig);
+        } else {
+            resolve(HardingPointConfig);
+        }
     });
-    return defer.promise;
+}
+
+function collection() {
+    return when.promise(function(resolve,reject,notify) {
+        db().then(function(db) {
+            db.collection(settings.mongoCollection||"nodered",function(err,_collection) {
+                if (err) {
+                    util.log("Mongo DB error:"+err);
+                    reject(err);
+                } else {
+                    resolve(_collection);
+                }
+            });
+        }).otherwise(function (err) {
+            reject(err);
+        })
+    });
+}
+
+function libCollection() {
+    return when.promise(function(resolve,reject,notify) {
+        db().then(function(db) {
+            db.collection(settings.mongoCollection||"nodered"+"-lib",function(err,_collection) {
+                if (err) {
+                    util.log("Mongo DB error:"+err);
+                    reject(err);
+                } else {
+                    resolve(_collection);
+                }
+            });
+        }).otherwise(function (err) {
+            reject(err);
+        })
+    });
 }
 
 function getLibraryEntry(type,path) {
@@ -331,8 +394,25 @@ function getLibraryEntry(type,path) {
     return defer.promise;
 }
 
+function close() {
+    return when.promise(function(resolve,reject,notify) {
+        if (mongodb) {
+            mongodb.close(true, function(err,result) {
+                if (err) {
+                    util.log("Mongo DB error:"+err);
+                    reject(err);
+                } else {
+                    resolve();
+                }
+            })
+            mongodb = null;
+        }
+    });
+}
+
 function saveLibraryEntry(type,path,meta,body) {
     var defer = when.defer();
+    debug.write("saveLibraryEntry","type: " + type + " path: " + path + " meta: " + meta + " body: " + body);
     libCollection().then(function(libCollection) {
         libCollection.update({appname:appname,type:type,path:path},{appname:appname,type:type,path:path,meta:meta,data:body},{upsert:true},function(err) {
             if (err) {
@@ -346,59 +426,4 @@ function saveLibraryEntry(type,path,meta,body) {
     });
     return defer.promise;
 }
-
-var HardingPointStorage = {
-    init: function(_settings) {
-        settings = _settings;
-        appname = settings.mongoAppname || require('os').hostname();
-        return db();
-    },
-    getFlows: function() {
-        return timeoutWrap(getFlows);
-    },
-    saveFlows: function(flows) {
-        return timeoutWrap(function(){return saveFlows(flows);});
-    },
-
-    getCredentials: function() {
-        return timeoutWrap(getCredentials);
-    },
-
-    saveCredentials: function(credentials) {
-        return timeoutWrap(function(){return saveCredentials(credentials);});
-    },
-
-    getSettings: function() {
-        return timeoutWrap(function() { return getSettings();});
-    },
-
-    saveSettings: function(data) {
-        return timeoutWrap(function() { return saveSettings(data);});
-    },
-
-    getAllFlows: function() {
-        console.log("@@ getAllFlows: ");
-        // return timeoutWrap(getAllFlows);
-    },
-
-    getFlow: function(fn) {
-        console.log("@@ getFlow: " + fn);
-        return timeoutWrap(function() { return getFlow(fn);});
-    },
-
-    saveFlow: function(fn,data) {
-        console.log("@@ saveFlow: " + fn);
-        return timeoutWrap(function() { return saveFlow(fn,data);});
-    },
-
-    getLibraryEntry: function(type,path) {
-        console.log("@@ getLibraryEntry: " + type);
-        // return timeoutWrap(function() { return getLibraryEntry(type,path);});
-    },
-    saveLibraryEntry: function(type,path,meta,body) {
-        console.log("@@ saveLibraryEntry: " + path);
-        // return timeoutWrap(function() { return saveLibraryEntry(type,path,meta,body);});
-    }
-};
-
-module.exports = HardingPointStorage;
+*/
