@@ -259,7 +259,7 @@ if (process.env.NODE_RED_USERNAME && process.env.NODE_RED_PASSWORD) {
     settings.adminAuth = {
         type: "credentials",
         users: function(username) {
-            if (process.env.NODE_RED_USERNAME == username) {
+            if (process.env.ENGAGEMENTGRAPH_ADMINUSER == username) {
                 return when.resolve({username:username,permissions:"*"});
             } else {
                 if (username.toLowerCase()=="readonly"){
@@ -274,8 +274,8 @@ if (process.env.NODE_RED_USERNAME && process.env.NODE_RED_PASSWORD) {
         //    permissions: "read"
         //},
         authenticate: function(username, password) {
-            if (process.env.NODE_RED_USERNAME == username &&
-                process.env.NODE_RED_PASSWORD == password) {
+            if (process.env.ENGAGEMENTGRAPH_ADMINUSER == username &&
+                process.env.ENGAGEMENTGRAPH_ADMINPWD == password) {
                 return when.resolve({username:username,permissions:"*"});
             } else {
                 if (username.toLowerCase()=="readonly" && password.toLowerCase()=="readonly"){
