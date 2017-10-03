@@ -68,11 +68,11 @@ var hardingPointAPI = {
         }},
     getfile: function(filename,callback){
         var jsonObject = "{\"filename\":\"" + filename + "\"}";
-        console.log("getfile: " + filename);
+        debug.write('HardingPointAPI.getfile','filename: ' + filename);
         var optionspost = getOptions(HardingPointConfig.GET,jsonObject,'application/json');
         var reqPost = https.request(optionspost, function(res) {
-            // console.log('statusCode:', res.statusCode);
-            // console.log('headers:', res.headers);
+            // debug.write("HardingPointAPI.getfile",'statusCode:' + res.statusCode);
+            // debug.write("HardingPointAPI.getfile",'headers:' + res.headers);
             var str = '';
             res.on('data', function(d) {
                 str+=d;
@@ -96,11 +96,10 @@ var hardingPointAPI = {
     savefile: function(filename, filedata, callback){
         var jsonObject = "{\"filename\":\"" + this.parseFileName(filename) + "\",\"filedata\":\"" + JSON.stringify(filedata).replace(/(")/g, "\\\"") + "\"}";
         var optionspost = getOptions(HardingPointConfig.SAVE,jsonObject,'application/json');
-        // console.log("savefile: " + jsonObject);
-        debug.write("SaveFile", "Filename: " + filename);
+        debug.write('HardingPointAPI.savefile', 'Filename: ' + filename);
         var reqPost = https.request(optionspost, function(res) {
-            // console.log('statusCode:', res.statusCode);
-            // console.log('headers:', res.headers);
+            // debug.write('HardingPointAPI.savefile', 'statusCode:' + res.statusCode);
+            // debug.write('HardingPointAPI.savefile', 'headers:' + res.headers);
             var str = '';
             res.on('data', function(d) {
                 str+=d;
@@ -112,7 +111,7 @@ var hardingPointAPI = {
             });
         });
         reqPost.on('error', function(e) {
-            console.log('Error: ' + e);
+            debug.outputiferror('HardingPointAPI.savefile',"Post Error",e);
             callback(e, "");
         });
         reqPost.write(jsonObject);

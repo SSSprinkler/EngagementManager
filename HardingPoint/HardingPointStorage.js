@@ -192,12 +192,24 @@ function getAllFlows() {
             }
         }else{
             if (data){
-                defer.resolve(JSON.parse("{[" + data + "]}"));
+                defer.resolve(JSON.parse(data));
             }else{
                 defer.resolve({});
             }
         }
     });
+    return defer.promise;
+}
+
+function saveLibraryEntry(type,path,meta,body) {
+    var defer = when.defer();
+    debug.write("HardingPointStorage.saveLibraryEntry","type: " + type + " path: " + path + " meta: " + meta + " body: " + body);
+    return defer.promise;
+}
+
+function getLibraryEntry(type,path) {
+    var defer = when.defer();
+    debug.write("HardingPointStorage.getLibraryEntry","type : " + type + " path: " + path);
     return defer.promise;
 }
 
@@ -237,22 +249,17 @@ var HardingPointStorage = {
 
     saveFlow: function(fn,data) {
         return timeoutWrap(function() { return saveFlow(fn,data);});
-    }
-
-    /*
+    },
     getAllFlows: function() {
-        console.log("@@ getAllFlows: ");
-        // return timeoutWrap(getAllFlows);
+        return timeoutWrap(getAllFlows);
     },
     getLibraryEntry: function(type,path) {
         // console.log("@@ getLibraryEntry: " + type);
         return timeoutWrap(function() { return getLibraryEntry(type,path);});
     },
     saveLibraryEntry: function(type,path,meta,body) {
-        // console.log("@@ saveLibraryEntry: " + path);
         return timeoutWrap(function() { return saveLibraryEntry(type,path,meta,body);});
     }
-    */
 };
 
 module.exports = HardingPointStorage;
