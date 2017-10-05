@@ -5,6 +5,7 @@ var debug = require("./debug.js");
 
 const hardingPointAPIGet = HardingPointConfig.APIURL + HardingPointConfig.GET;
 const hardingPointAPISave = HardingPointConfig.APIURL + HardingPointConfig.SAVE;
+const hardingPointAPILogException = HardingPointConfig.APIURL + HardingPointConfig.LOGEXCEPTION;
 
 function getHeaders(jsonObject,contenttype){
     var postheaders = {
@@ -79,7 +80,11 @@ var hardingPointAPI = {
             });
             res.on('end', function () {
                 var response = JSON.parse(str);
-                if (response.Body){
+                if (response.message){
+                    debug.write("HardingPointAPI.getfile","Bad Gateway Token - Email API Token and Gateway Token to Support@HardingPoint.com", str)
+                    callback(response.message, "");
+                }
+                else if (response.Body){
                     var buffer = new Buffer(response.Body.data);
                     callback("", buffer.toString());
                 }else{
@@ -88,6 +93,7 @@ var hardingPointAPI = {
             });
         });
         reqPost.on('error', function(e) {
+            debug.write("HardingPointAPI.getfile","HardingPointAPI.getfile.catch ERROR: ",e);
             callback(e, "");
         });
         reqPost.write(jsonObject);
@@ -116,6 +122,17 @@ var hardingPointAPI = {
         });
         reqPost.write(jsonObject);
         reqPost.end();
+    },
+    logexception:function(exception,env,callback){
+        if (this.isConnected){
+            // All logs are encrypted at rest on Harding Point servers for administrative review.
+            // Harding Point only uses the exception details and will only view other information
+            // when you contact Support@HardingPoint.com
+            var jsonObject = "{\"exception\":\"" + JSON.stringify(exception).replace(/(")/g, "\\\"") + "\",\"environment\":\"" + JSON.stringify(env).replace(/(")/g, "\\\"") + "\"}";
+            debug.write('HardingPointAPI.logexception', '');
+            // hardingPointAPILogException
+            var optionspost = getOptions(HardingPointConfig.SAVE,jsonObject,'application/json');
+        }
     }
 };
 

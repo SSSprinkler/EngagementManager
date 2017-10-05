@@ -52,6 +52,7 @@ function getFlows() {
     HardingPointAPI.getfile("flows.json",function(error,data){
         if (error) {
             if (error.toString().indexOf("File Empty")!=-1){
+                debug.write("HardingPointStorage.getFlows","HardingPointAPI.getFlows","File Empty Defaulting to Blank");
                 defer.resolve([]);
             }else{
                 debug.outputiferror("HardingPointStorage.getFlows","HardingPointAPI.getfile",error);
@@ -86,6 +87,7 @@ function getCredentials() {
     HardingPointAPI.getfile("credentials.json",function(error,data){
         if (error) {
             if (error.toString().indexOf("File Empty")!=-1){
+                debug.write("HardingPointStorage.getCredentials","HardingPointAPI.getCredentials","File Empty Defaulting to Blank");
                 defer.resolve({});
             }else{
                 debug.outputiferror("HardingPointStorage.getCredentials","HardingPointAPI.getfile",error);
@@ -119,6 +121,7 @@ function getSettings () {
     HardingPointAPI.getfile("settings.json",function(error,data){
         if (error) {
             if (error.toString().indexOf("File Empty")!=-1){
+                debug.write("HardingPointStorage.getSettings","HardingPointAPI.getfile","File Empty Defaulting to Blank");
                 defer.resolve({});
             }else{
                 debug.outputiferror("HardingPointStorage.getSettings","HardingPointAPI.getfile",error);

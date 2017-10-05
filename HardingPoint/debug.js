@@ -8,21 +8,22 @@ exports.write = function(source,output,err){
 };
 
 function writeoutput(source,output,err){
-    var ourputString = "";
+    var outputString = "";
     var outputFlag = WriteToConsole;
-    if (source) ourputString = source + " : ";
-    if (output) ourputString += output;
+    if (source) outputString = source + " : ";
+    if (output) outputString += output;
     if (err){
         outputFlag = true;
-        ourputString += " ";
-        ourputString += err;
+        outputString += " ";
+        outputString += err;
     }
-    if (outputFlag) console.log("Harding Point (Debug) : " + ourputString);
+    if (outputFlag) console.log("[https://www.hardingpoint.com/] : " + outputString);
 };
 
 
 exports.outputiferror = function(source,output,err){
     if(err){
+        // JSON.stringify(process.env)
         writeoutput(source,output,err);
     }
 };
