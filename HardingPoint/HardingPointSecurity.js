@@ -1,3 +1,12 @@
+/**
+ * Copyright 2017 Harding Point
+ *
+ *  Contact Support@HardingPoint.com
+ *
+ *  https://www.hardingpoint.com/
+ *  https://github.com/HardingPoint
+ *
+ **/
 
 var debug = require("./debug.js");
 var when = require("when");
@@ -20,11 +29,11 @@ HardingPointSecurity.adminAuth = {
     type: "credentials",
     users: function(username) {
         if (HardingPointSecurity.AdminUser == username) {
-            debug.write("HardingPointSettings.users", "Setting Admin Permissions : " + username);
+            // debug.write("HardingPointSettings.users", "Setting Admin Permissions : " + username);
             return when.resolve({username:username,permissions:"*"});
         } else {
             if (username.toLowerCase()=="readonly"){
-                debug.write("HardingPointSettings.users", "Read Only Permissions: " + username);
+                // debug.write("HardingPointSettings.users", "Read Only Permissions: " + username);
                 return when.resolve({username:username,permissions:"read"});
             }
             else{
@@ -41,18 +50,17 @@ HardingPointSecurity.adminAuth = {
         try{
             if (HardingPointSecurity.AdminUser == username &&
                 HardingPointSecurity.AdminPwd == password) {
-                debug.write("HardingPointSettings.authenticate", "Setting Admin Permissions: " + username);
+                // debug.write("HardingPointSettings.authenticate", "Setting Admin Permissions: " + username);
                 // debug.write("HardingPointSettings.authenticate", "Secure Hash: " + GenerateHash(password));
                 return when.resolve({username:username,permissions:"*"});
             } else {
                 if (username.toLowerCase()=="readonly" && password.toLowerCase()=="readonly"){
-                    debug.write("HardingPointSettings.authenticate", "Read Only Permissions: " + username);
+                    // debug.write("HardingPointSettings.authenticate", "Read Only Permissions: " + username);
                     return when.resolve({username:username,permissions:"read"});
                 }
                 else{
                     debug.write("HardingPointSettings.authenticate", "No Permissions: " + username);
-                    debug.write("HardingPointSettings.authenticate", HardingPointSecurity.AdminUser + "=" + username);
-                    debug.write("HardingPointSettings.authenticate", HardingPointSecurity.AdminPwd + "=" + password);
+                    debug.write("HardingPointSettings.authenticate", HardingPointSecurity.AdminUser);
                     return when.resolve(null);
                 }
             }

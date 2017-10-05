@@ -1,3 +1,12 @@
+/**
+ * Copyright 2017 Harding Point
+ *
+ *  Contact Support@HardingPoint.com
+ *
+ *  https://www.hardingpoint.com/
+ *  https://github.com/HardingPoint
+ *
+ **/
 
 module.exports = {
     APIURL: process.env.ENGAGEMENTGRAPH_APIURL || "https://prod.hardingpoint.com/v9.3/api",

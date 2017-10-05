@@ -1,3 +1,12 @@
+/**
+ * Copyright 2017 Harding Point
+ *
+ *  Contact Support@HardingPoint.com
+ *
+ *  https://www.hardingpoint.com/
+ *  https://github.com/HardingPoint
+ *
+ **/
 
 const WriteToConsole = true;
 

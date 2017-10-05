@@ -1,22 +1,12 @@
 /**
- * Copyright JS Foundation and other contributors, http://js.foundation
+ * Copyright 2017 Harding Point
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ *  Contact Support@HardingPoint.com
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *  https://www.hardingpoint.com/
+ *  https://github.com/HardingPoint
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  **/
-
-// The `https` setting requires the `fs` module. Uncomment the following
-// to make it available:
-//var fs = require("fs");
 
 var path = require("path");
 var when = require("when");
@@ -250,7 +240,7 @@ var settings = module.exports = {
             // debug - record information which is more verbose than info + info + warn + error + fatal errors
             // trace - record very detailed logging + debug + info + warn + error + fatal errors
             // off - turn off all logging (doesn't affect metrics or audit)
-            level: "info",
+            level: "trace",
             // Whether or not to include metric events in the log output
             metrics: false,
             // Whether or not to include audit events in the log output

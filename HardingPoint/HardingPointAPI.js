@@ -1,3 +1,13 @@
+/**
+ * Copyright 2017 Harding Point
+ *
+ *  Contact Support@HardingPoint.com
+ *
+ *  https://www.hardingpoint.com/
+ *  https://github.com/HardingPoint
+ *
+ **/
+
 var https = require('https');
 
 var HardingPointConfig = require("./HardingPointConfig.js");
@@ -83,7 +93,7 @@ var hardingPointAPI = {
                 var response = JSON.parse(str);
                 if (response.message){
                     debug.write("HardingPointAPI.getfile","Bad Gateway Token - Email API Token and Gateway Token to Support@HardingPoint.com", str)
-                    hardingPointAPI.loadFromCache(filename),function(err,data){
+                    hardingPointAPI.loadFromCache(filename), function(err,data){
                         if (err || !data){
                             debug.write("HardingPointAPI.getfile","Failed : Loaded from Cache","Cache Empty");
                             callback(response.message, "");

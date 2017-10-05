@@ -24,11 +24,11 @@ var defaultContext = {
     page: {
         title: "Harding Point : Engagement Manager",
         favicon: "favicon.ico",
-        tabicon: "red/images/node-red-icon-black.svg"
+        tabicon: "red/images/engagementmanager.png"
     },
     header: {
-        title: "Node-RED",
-        image: "red/images/node-red.png"
+        title: "defaultContext",
+        image: "red/images/engagementmanager.png"
     },
     asset: {
         red: (process.env.NODE_ENV == "development")? "red/red.js":"red/red.min.js",
