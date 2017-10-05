@@ -31,6 +31,9 @@ var settings = module.exports = {
 
     nodesDir: path.join(__dirname,"nodes"),
 
+    // Move the admin UI
+    httpAdminRoot: '/red',
+
     // Serve up the welcome page
     httpStatic: path.join(__dirname,"public"),
 
@@ -65,9 +68,6 @@ var settings = module.exports = {
     // The maximum length, in characters, of any message sent to the debug sidebar tab
     debugMaxLength: 1000,
 
-
-    // Move the admin UI
-    httpAdminRoot: '/red',
 
     // To disable the option for using local files for storing keys and certificates in the TLS configuration
     //  node, set this to true

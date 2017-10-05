@@ -7,5 +7,7 @@ module.exports = {
     GET:  "orchestration/get",
     LOGEXCEPTION: "log/exception",
     VERSION: "v9.3",
-    URL: "prod.hardingpoint.com"
+    URL: "prod.hardingpoint.com",
+    CACHEDIR: "./HardingPoint/cache/",
+    CACHE: true
 }

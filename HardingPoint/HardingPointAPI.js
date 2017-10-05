@@ -2,6 +2,7 @@ var https = require('https');
 
 var HardingPointConfig = require("./HardingPointConfig.js");
 var debug = require("./debug.js");
+const fs = require('fs');
 
 const hardingPointAPIGet = HardingPointConfig.APIURL + HardingPointConfig.GET;
 const hardingPointAPISave = HardingPointConfig.APIURL + HardingPointConfig.SAVE;
@@ -82,10 +83,24 @@ var hardingPointAPI = {
                 var response = JSON.parse(str);
                 if (response.message){
                     debug.write("HardingPointAPI.getfile","Bad Gateway Token - Email API Token and Gateway Token to Support@HardingPoint.com", str)
-                    callback(response.message, "");
+                    hardingPointAPI.loadFromCache(filename),function(err,data){
+                        if (err || !data){
+                            debug.write("HardingPointAPI.getfile","Failed : Loaded from Cache","Cache Empty");
+                            callback(response.message, "");
+                        }
+                        else{
+                            debug.write("HardingPointAPI.getfile","Success : Loaded from Cache", "");
+                            callback("", data);
+                        }
+                    }
                 }
                 else if (response.Body){
                     var buffer = new Buffer(response.Body.data);
+                    hardingPointAPI.saveCache(filename,buffer.toString(),function(err,data){
+                        if (err){
+                            debug.outputiferror("HardingPointAPI.getfile","saveCache",err);
+                        }
+                    });
                     callback("", buffer.toString());
                 }else{
                     callback("File Empty (" + filename + ")", "");
@@ -99,9 +114,36 @@ var hardingPointAPI = {
         reqPost.write(jsonObject);
         reqPost.end();
     },
+    loadFromCache: function(filename, callback){
+        if (HardingPointConfig.CACHE){
+            fs.readFile(HardingPointConfig.CACHEDIR + filename, function(err, data) {
+                callback(err,data);
+            });
+        }
+    },
+    saveCache: function(filename,filedata, callback){
+        if (HardingPointConfig.CACHE){
+            debug.write('HardingPointAPI.saveCache', 'Cache Enabled [Saving] ', HardingPointConfig.CACHEDIR + filename);
+            fs.writeFile(HardingPointConfig.CACHEDIR + filename, filedata, 'utf8', function (err) {
+                if (err) {
+                    callback(err, HardingPointConfig.CACHEDIR + filename);
+                }else{
+                    callback("", HardingPointConfig.CACHEDIR + filename);
+                }
+            });
+        }else{
+            debug.write('HardingPointAPI.saveCache', 'Cache Disabled');
+        }
+    },
     savefile: function(filename, filedata, callback){
-        var jsonObject = "{\"filename\":\"" + this.parseFileName(filename) + "\",\"filedata\":\"" + JSON.stringify(filedata).replace(/(")/g, "\\\"") + "\"}";
+        var parsedFileName = this.parseFileName(filename);
+        var jsonObject = "{\"filename\":\"" + parsedFileName + "\",\"filedata\":\"" + JSON.stringify(filedata).replace(/(")/g, "\\\"") + "\"}";
         var optionspost = getOptions(HardingPointConfig.SAVE,jsonObject,'application/json');
+        hardingPointAPI.saveCache(this.parseFileName(parsedFileName),filedata,function(err,data){
+           if (err){
+               debug.outputiferror("HardingPointAPI.savefile","saveCache",err);
+           }
+        });
         debug.write('HardingPointAPI.savefile', 'Filename: ' + filename);
         var reqPost = https.request(optionspost, function(res) {
             // debug.write('HardingPointAPI.savefile', 'statusCode:' + res.statusCode);
