@@ -9,14 +9,14 @@
  **/
 
 module.exports = {
-    APIURL: process.env.ENGAGEMENTGRAPH_APIURL || "https://prod.hardingpoint.com/v9.3/api",
-    GATEWAYTOKEN: process.env.ENGAGEMENTGRAPH_GATEWAYTOKEN || "IqfOlY2JJb37JRH7I11pd7zOqbYi5Nw0aOSA8WQl",
-    APITOKEN: process.env.ENGAGEMENTGRAPH_APITOKEN || "299123d3ccebfc2178e2664d821e536b7924a2b30562146a5f781112c6e7b95d",
+    APIURL: process.env.ENGAGEMENTMANAGER_APIURL || process.env.ENGAGEMENTGRAPH_APIURL || "https://prod.hardingpoint.com/v9.3/api",
+    GATEWAYTOKEN: process.env.ENGAGEMENTMANAGER_GATEWAYTOKEN || process.env.ENGAGEMENTGRAPH_GATEWAYTOKEN,
+    APITOKEN: process.env.ENGAGEMENTMANAGER_APITOKEN || process.env.ENGAGEMENTGRAPH_APITOKEN,
     SAVE: "orchestration/save",
     GET:  "orchestration/get",
     LOGEXCEPTION: "log/exception",
-    VERSION: "v9.3",
-    URL: "prod.hardingpoint.com",
+    VERSION: process.env.ENGAGEMENTMANAGER_APIVERSION || "v9.3",
+    URL: process.env.ENGAGEMENTMANAGER_URL || "prod.hardingpoint.com",
     CACHEDIR: process.env.ENGAGEMENTMANAGER_CACHE_DIR || "./HardingPoint/cache/",
     CACHE: process.env.ENGAGEMENTMANAGER_CACHE_ENABLED || true
 }
