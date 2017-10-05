@@ -8,6 +8,6 @@ module.exports = {
     LOGEXCEPTION: "log/exception",
     VERSION: "v9.3",
     URL: "prod.hardingpoint.com",
-    CACHEDIR: "./HardingPoint/cache/",
-    CACHE: true
+    CACHEDIR: process.env.CACHE_DIR || "./HardingPoint/cache/",
+    CACHE: process.env.CACHE_ENABLED || true
 }
