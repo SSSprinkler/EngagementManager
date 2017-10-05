@@ -1,0 +1,35 @@
+{
+  "name": "Harding Point : Engagement Manager",
+  "description": "Orchestrate, integrate, and engage with your customers/devices/partners/back office",
+  "repository": "https://github.com/HardingPoint/graphconnect.git",
+  "website": "https://www.hardingpoint.com/",
+  "keywords": ["salesforce","graphdb","neo4j"],
+  "addons": [
+    {
+      "plan": "graphenedb:chalk",
+      "as": "GraphConnect"
+    },
+    {
+      "plan": "engagementgraph:test",
+      "as": "ENGAGEMENTGRAPH"
+    }
+  ],
+  "env": {
+    "ENGAGEMENTMANAGER_APIVERSION": {
+      "description": "Harding Point API Version",
+      "value": "v9.3"
+    },
+    "ENGAGEMENTMANAGER_URL": {
+      "description": "Harding Point API URL (prod, qa, dev)",
+      "value": "prod.hardingpoint.com"
+    },
+    "ENGAGEMENTMANAGER_CACHE_DIR": {
+      "description": "Temporary cache for Heroku ephemeral file system",
+      "value": "./HardingPoint/cache/"
+    },
+    "ENGAGEMENTMANAGER_CACHE_ENABLED": {
+      "description": "Temporary cache for Heroku ephemeral file system",
+      "value": "true"
+    }
+  }
+}

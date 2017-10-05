@@ -1,74 +1,142 @@
-# Node-RED
+# Harding Point : Engagement Manager
+ 
+Engagement Manager allows you to quickly ochestrate customer, device, backoffice, and app engagement.
 
-http://nodered.org
-
-[![Build Status](https://travis-ci.org/node-red/node-red.svg)](https://travis-ci.org/node-red/node-red)
-[![Coverage Status](https://coveralls.io/repos/node-red/node-red/badge.svg?branch=master)](https://coveralls.io/r/node-red/node-red?branch=master)
-
-A visual tool for wiring the Internet of Things.
-
-![Node-RED: A visual tool for wiring the Internet of Things](http://nodered.org/images/node-red-screenshot.png)
-
-## Quick Start
-
-Check out http://nodered.org/docs/getting-started/ for full instructions on getting
-started.
-
-1. `sudo npm install -g node-red`
-2. `node-red`
-3. Open <http://localhost:1880>
-
-## Getting Help
-
-More documentation can be found [here](http://nodered.org/docs).
-
-For further help, or general discussion, please use the
-[mailing list](https://groups.google.com/forum/#!forum/node-red).
-
-## Developers
-
-If you want to run the latest code from git, here's how to get started:
-
-1. Clone the code:
-
-        git clone https://github.com/node-red/node-red.git
-        cd node-red
-
-2. Install the node-red dependencies
-
-        npm install
-
-3. Build the code
-
-        npm run build
-
-4. Run
-
-        npm start
-   or
-
-        node red.js
-
-## Contributing
-
-Before raising a pull-request, please read our
-[contributing guide](https://github.com/node-red/node-red/blob/master/CONTRIBUTING.md).
-
-This project adheres to the [Contributor Covenant 1.4](http://contributor-covenant.org/version/1/4/).
- By participating, you are expected to uphold this code. Please report unacceptable
- behavior to any of the [project's core team](https://github.com/orgs/node-red/teams/core).
-
-## Authors
-
-Node-RED is a project of the [JS Foundation](http://js.foundation).
-
-It was created by [IBM Emerging Technology](https://www.ibm.com/blogs/emerging-technology/).
-
-* Nick O'Leary [@knolleary](http://twitter.com/knolleary)
-* Dave Conway-Jones [@ceejay](http://twitter.com/ceejay)
+[![Harding Point Engagement Manager](https://static.wixstatic.com/media/983560_c5c91d5d1280442180cb1cce09d1368e~mv2_d_2840_1450_s_2.png/v1/fill/w_2120,h_1000,al_c,usm_0.66_1.00_0.01/983560_c5c91d5d1280442180cb1cce09d1368e~mv2_d_2840_1450_s_2.png)](http://engage.hardingpoint.com/)
 
 
 
-## Copyright and license
+![Harding Point Engagement Graph](https://static.wixstatic.com/media/983560_7563ad3d347646e1a792e19a2c14e44c~mv2_d_2754_1836_s_2.png/v1/fill/w_1545,h_1030,al_c,usm_0.66_1.00_0.01/983560_7563ad3d347646e1a792e19a2c14e44c~mv2_d_2754_1836_s_2.png "Harding Point Graph Connect")
 
-Copyright JS Foundation and other contributors, http://js.foundation under [the Apache 2.0 license](LICENSE).
+
+[Engagement Graph](http://www.HardingPoint.com) quickly builds and connects your Salesforce data with all your data 
+islands.  The [Engagement Graph](http://www.HardingPoint.com) is used for deep analytics, artificial intelligence, 
+reporting, and App Development. The more data and relationships you link with your [Engagement Graph](http://www.HardingPoint.com) 
+the quicker it builds, learns (via AI), and reacts (via Engagement Manager) from your [Neural Network](http://www.HardingPoint.com).
+
+* [`Graph Connect Deploy`](https://graphconnect.herokuapp.com/) - Live Graph Connect  (Recommend following instructions below, if first time)
+* [`Engagement Manager & Orchestration` - Login: readonly/readonly](http://engage.hardingpoint.com/) - Uses Additional Package with your Engagement Graph
+* [`Engagement Browser` - Try Custom App Demo Now ](https://engagementbrowser.herokuapp.com/?neoid=0011I000003ExJzQAK) - Powered by Graph Connect - Synchronized from Salesforce
+* `Neural Network & AI` - Uses Additional Package on Top with your Engagement Graph
+* `Analytics & Reporting` - Uses Additional Package with your Engagement Graph
+
+# Installation Instructions
+
+1. ##### Request Alpha Access to [EngagementGraph AddOn](https://elements.heroku.com/addons/engagementgraph)
+    1. Email EarlyAccess@HardingPoint.com your Heroku Username
+
+1. <a href="https://id.heroku.com/login" target="_new">Login to Heroku</a> or <a href="https://signup.heroku.com" target="_new">Create Heroku Credentials</a>
+
+1. <a href="https://login.salesforce.com" target="_new">Login to Salesforce</a> or <a href="https://developer.salesforce.com/signup" target="_new">Create Salesforce Developer Edition</a>
+
+1. <a href="https://login.salesforce.com/lightning/switcher?destination=classic" target="_new">Switch to Salesforce Classic</a>
+        
+1. <a href="https://login.salesforce.com/setup/ui/listCustomSettings.apexp" target="_new">Create a Salesforce Custom Setting</a>
+    1. Create Salesforce.com Custom Setting `HardingPoint as Hierarchy/Public`
+    1. Create New Custom Field in HardingPoint Custom Setting `Name:ApiToken Field Type: Text(255)`
+    1. Create New Custom Field in HardingPoint Custom Setting `Name:GatewayToken Field Type: Text(255)`
+    1. Create New Custom Field in HardingPoint Custom Setting `Name:graphdburl Field Type:URL Click Save`
+    <!-- 1. Create New Custom Field in HardingPoint Custom Setting `Name:APIURL Field Type: URL` -->
+
+1. [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+    1. Choose Heroku App Name
+    1. Past Consumer Key & Consumer Secret into install boxes
+        1. Values from above when you created 'Connected App' in Salesforce.
+    1. Go to Heroku Config Vars copy `GRAPHCONNECT_URL`  (Needed in Salesforce)
+
+1. ##### Check email for Alpha Invite `Will Be Removed After Release`
+    1. Install `engagementgraph` after receiving the Alpha invite from Heroku.  Command below.
+        1. [Install Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
+        1. Running at Terminal or Command Prompt (After installing Heroku CLI)
+            1. heroku login
+            1. heroku addons:create engagementgraph:test --app YOUR_APP_NAME_HERE
+
+1. <a href="https://login.salesforce.com/setup/ui/listCustomSettings.apexp" target="_new">Update Custom Settings</a>
+    1. Click on HardingPoint
+    1. Click on Manage
+    1. Click on New Default Organization Level Value
+    1. Update `GatewayToken` with `ENGAGEMENTGRAPH_GATEWAYTOKEN` from Heroku Config Variables
+    1. Update `ApiToken` with `ENGAGEMENTGRAPH_APITOKEN` from Heroku Config Variables
+        1. Request Early Access by emailing EarlyAccess@HardingPoint.com your Heroku Username 
+        1. All Alpha testers will be given free access
+    1. Update `graphdburl` with `GRAPHCONNECT_URL` from Heroku Config Variables (You can use any Neo4j URL)
+    <!-- 1. Update `APIURL` with `ENGAGEMENTGRAPH_APIURL` from Heroku Config Variables -->
+        
+1. <a href="https://login.salesforce.com/02u" target="_new">Edit Connected App for Salesforce</a>
+    1. update the `Callback URL` to be `https://<YOUR_APP_NAME>.herokuapp.com/_oauth_callback`
+
+# Deploying Graph Connect for Accounts
+
+1. https://graphconnect.herokuapp.com/ or [Install your Own](https://github.com/HardingPoint/graphconnect)
+
+1. Click [`Login via Salesforce - Normal Instance`]
+
+    1. If you get a `Routing` error it is because Salesforce has not finished updating (wait 4 minutes)
+
+1. Select SObject `Account` from SObject Dropdown
+
+1. Click [`Connect to Graph`]
+
+(It will automatically process the history)
+
+![Harding Point Connecth](https://static.wixstatic.com/media/983560_433e31decb984e7caba4de2bcc4e8a54~mv2_d_3076_1874_s_2.png/v1/fill/w_1897,h_1156,al_c,usm_0.66_1.00_0.01/983560_433e31decb984e7caba4de2bcc4e8a54~mv2_d_3076_1874_s_2.png)
+
+
+# View Graph
+    
+    1. Go back to your Heroku Dashboard and into <YOUR_APP_NAME>
+    1. Click Resources
+    1. Click GrapheneDB
+        1. Scroll to bottom click `Launch` for Neo4j Browser
+        1. Click Icon Top Left Corner
+        1. You should see your object listed Click on it (ex Account)
+        
+        
+# Reproducing Engagement Graph From Above Image
+
+    1. Deploy Graph Connect Account (Did above already)
+    1. Deploy Graph Connect Contact
+    1. Deploy Graph Connect Opportunity
+    1. Deploy Graph Connect Case
+    
+        
+# Cleaning Graph
+
+When you deploy Graph Connect it automatically processes the history.
+
+##### Delete All Data
+    MATCH (n)
+    DETACH DELETE n
+    
+    (Be Careful This Deletes Everything)
+    
+##### Delete One Node with Relationships
+    MATCH (n { name: 'Andres' })
+    DETACH DELETE n
+    
+##### Deleting Using the Salesforce Id
+    
+    MATCH (n { Id: '00Q1I000001xNBdUAM' })
+    DETACH DELETE n
+    
+# Querying Data
+
+##### Matching By Id
+
+    MATCH (n{Id:'0010x000002IHpJAAW'}) return n;
+
+##### Matching Node and Relationships
+
+    MATCH (n{Id:'0010x000002IHpJAAW'})-[r]-(b) return b.name, labels(b);
+    
+
+##### Return Node and All Relationships
+
+    MATCH (c:Account{sfdcid:"0013900001ZglUQAAZ"}) 
+    WITH c
+    OPTIONAL MATCH (c)-[r]-()
+    RETURN c, r
+   
+
+    
