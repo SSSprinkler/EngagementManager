@@ -162,8 +162,6 @@ var hardingPointAPI = {
     },
     savefile: function(filename, filedata, callback){
         var parsedFileName = this.parseFileName(filename);
-        console.log(filedata);
-        // var jsonObject = "{\"filename\":\"" + parsedFileName + "\",\"filedata\":\"" + JSON.stringify(filedata).replace(/(")/g, "\\\"").replace(/(\n)/g, "\\\n") + "\"}";
         var jsonObject = "{\"filename\":\"" + parsedFileName + "\",\"filedata\":\"" + JSON.stringify(filedata).replace(/(\\)/g, "\\\\").replace(/(")/g, "\\\"") + "\"}";
         var optionspost = getOptions(HardingPointConfig.SAVE,jsonObject,'application/json');
         try{
