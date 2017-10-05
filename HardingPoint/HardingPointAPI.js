@@ -154,6 +154,7 @@ var hardingPointAPI = {
             }
         }else{
             debug.write('HardingPointAPI.saveCache', 'Cache Disabled');
+            callback("","");
         }
     },
     savefile: function(filename, filedata, callback){
