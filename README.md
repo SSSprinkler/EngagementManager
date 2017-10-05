@@ -1,13 +1,14 @@
 # Harding Point : Engagement Manager
  
-Engagement Manager allows you to quickly ochestrate customer, device, backoffice, and app engagement.
+Engagement Manager allows you to quickly ochestrate customer, device, backoffice, and app engagement. 
+
+<BR/>
+<BR/>
 
 [![Harding Point Engagement Manager](https://static.wixstatic.com/media/983560_c5c91d5d1280442180cb1cce09d1368e~mv2_d_2840_1450_s_2.png/v1/fill/w_2120,h_1000,al_c,usm_0.66_1.00_0.01/983560_c5c91d5d1280442180cb1cce09d1368e~mv2_d_2840_1450_s_2.png)](http://engage.hardingpoint.com/)
 
 
-
-![Harding Point Engagement Graph](https://static.wixstatic.com/media/983560_7563ad3d347646e1a792e19a2c14e44c~mv2_d_2754_1836_s_2.png/v1/fill/w_1545,h_1030,al_c,usm_0.66_1.00_0.01/983560_7563ad3d347646e1a792e19a2c14e44c~mv2_d_2754_1836_s_2.png "Harding Point Graph Connect")
-
+<BR/><BR/>
 
 [Engagement Graph](http://www.HardingPoint.com) quickly builds and connects your Salesforce data with all your data 
 islands.  The [Engagement Graph](http://www.HardingPoint.com) is used for deep analytics, artificial intelligence, 
@@ -19,6 +20,10 @@ the quicker it builds, learns (via AI), and reacts (via Engagement Manager) from
 * [`Engagement Browser` - Try Custom App Demo Now ](https://engagementbrowser.herokuapp.com/?neoid=0011I000003ExJzQAK) - Powered by Graph Connect - Synchronized from Salesforce
 * `Neural Network & AI` - Uses Additional Package on Top with your Engagement Graph
 * `Analytics & Reporting` - Uses Additional Package with your Engagement Graph
+
+
+![Harding Point Engagement Graph](https://static.wixstatic.com/media/983560_7563ad3d347646e1a792e19a2c14e44c~mv2_d_2754_1836_s_2.png/v1/fill/w_1545,h_1030,al_c,usm_0.66_1.00_0.01/983560_7563ad3d347646e1a792e19a2c14e44c~mv2_d_2754_1836_s_2.png "Harding Point Graph Connect")
+
 
 # Installation Instructions
 
