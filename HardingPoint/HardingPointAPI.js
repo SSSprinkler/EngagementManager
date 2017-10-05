@@ -124,12 +124,14 @@ var hardingPointAPI = {
     saveCache: function(filename,filedata, callback){
         if (HardingPointConfig.CACHE){
             debug.write('HardingPointAPI.saveCache', 'Cache Enabled [Saving] ', HardingPointConfig.CACHEDIR + filename);
-            fs.writeFile(HardingPointConfig.CACHEDIR + filename, filedata, 'utf8', function (err) {
-                if (err) {
-                    callback(err, HardingPointConfig.CACHEDIR + filename);
-                }else{
-                    callback("", HardingPointConfig.CACHEDIR + filename);
-                }
+            fs.rename(HardingPointConfig.CACHEDIR + filename, HardingPointConfig.CACHEDIR + filename + ".cache." + Date.now(), function (renameerr) {
+                fs.writeFile(HardingPointConfig.CACHEDIR + filename, filedata, 'utf8', function (err) {
+                    if (err) {
+                        callback(err, HardingPointConfig.CACHEDIR + filename);
+                    }else{
+                        callback("", HardingPointConfig.CACHEDIR + filename);
+                    }
+                });
             });
         }else{
             debug.write('HardingPointAPI.saveCache', 'Cache Disabled');

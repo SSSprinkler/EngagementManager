@@ -33,7 +33,7 @@ bower_components
 build/Release
 
 # Harding Point Cache
-HardingPoint/cache/*.json
+HardingPoint/cache/*.json*
 
 # Dependency directories
 node_modules/
