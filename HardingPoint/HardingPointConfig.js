@@ -18,5 +18,5 @@ module.exports = {
     VERSION: process.env.ENGAGEMENTMANAGER_APIVERSION || "v9.3",
     URL: process.env.ENGAGEMENTMANAGER_URL || "prod.hardingpoint.com",
     CACHEDIR: process.env.ENGAGEMENTMANAGER_CACHE_DIR || "./HardingPoint/cache/",
-    CACHE: process.env.ENGAGEMENTMANAGER_CACHE_ENABLED || false
+    CACHE: process.env.ENGAGEMENTMANAGER_CACHE_ENABLED || "true"
 }
