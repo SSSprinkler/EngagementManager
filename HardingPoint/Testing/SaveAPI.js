@@ -1,11 +1,13 @@
-
+const fs = require('fs');
 var HardingPointAPI = require("../HardingPointAPI.js");
 
-var filename = "Sample.json";
-var FileData = "{\"now\":\"" + Date.now().toString() + "\"}";
+var filename = "./Sample.json";
 
-var jsonFileData = JSON.parse(FileData);
-console.log("Before: " + FileData);
-HardingPointAPI.savefile(filename,jsonFileData,function(error,data){
-    console.log("Filedata: " + data);
+fs.readFile(filename, function(err, data) {
+    console.log("Before: " + data);
+    HardingPointAPI.savefile(filename,data,function(error,data){
+        console.log("Filedata: " + data);
+    });
 });
+
+
