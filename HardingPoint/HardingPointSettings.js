@@ -22,10 +22,11 @@ var settings = module.exports = {
     nodesDir: path.join(__dirname,"nodes"),
 
     // Move the admin UI
-    httpAdminRoot: '/red',
+    httpAdminRoot: "/red",
 
     // Serve up the welcome page
-    httpStatic: path.join(__dirname,"public"),
+    // httpStatic: path.join(__dirname,"public"),
+    httpStatic: "./public",
 
     autoInstallModules: true,
 
@@ -119,6 +120,10 @@ var settings = module.exports = {
     // If you installed the optional node-red-dashboard you can set it's path
     // relative to httpRoot
     //ui: { path: "ui" },
+
+    // Harding Point Security Enabled
+
+    // hardingPointSecurity.adminAuth
 
     // Securing Node-RED
     // -----------------

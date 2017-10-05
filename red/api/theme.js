@@ -27,7 +27,7 @@ var defaultContext = {
         tabicon: "red/images/engagementmanager.png"
     },
     header: {
-        title: "defaultContext",
+        title: "Harding Point : Engagement Manager",
         image: "red/images/engagementmanager.png"
     },
     asset: {
