@@ -126,23 +126,32 @@ var hardingPointAPI = {
     },
     loadFromCache: function(filename, callback){
         if (HardingPointConfig.CACHE){
-            fs.readFile(HardingPointConfig.CACHEDIR + filename, function(err, data) {
-                callback(err,data);
-            });
+            try{
+                fs.readFile(HardingPointConfig.CACHEDIR + filename, function(err, data) {
+                    callback(err,data);
+                });
+            }catch(e){
+                callback(e,HardingPointConfig.CACHEDIR + filename);
+            }
         }
     },
     saveCache: function(filename,filedata, callback){
+        var fullfilename = HardingPointConfig.CACHEDIR + filename;
         if (HardingPointConfig.CACHE){
-            debug.write('HardingPointAPI.saveCache', 'Cache Enabled [Saving] ', HardingPointConfig.CACHEDIR + filename);
-            fs.rename(HardingPointConfig.CACHEDIR + filename, HardingPointConfig.CACHEDIR + filename + ".cache." + Date.now(), function (renameerr) {
-                fs.writeFile(HardingPointConfig.CACHEDIR + filename, filedata, 'utf8', function (err) {
-                    if (err) {
-                        callback(err, HardingPointConfig.CACHEDIR + filename);
-                    }else{
-                        callback("", HardingPointConfig.CACHEDIR + filename);
-                    }
+            try{
+                debug.write('HardingPointAPI.saveCache', 'Cache Enabled [Saving] ', fullfilename);
+                fs.rename(fullfilename, fullfilename + ".cache." + Date.now(), function (renameerr) {
+                    fs.writeFile(fullfilename, filedata, 'utf8', function (err) {
+                        if (err) {
+                            callback(err, fullfilename);
+                        }else{
+                            callback("", fullfilename);
+                        }
+                    });
                 });
-            });
+            }catch(e){
+                callback(e,fullfilename);
+            }
         }else{
             debug.write('HardingPointAPI.saveCache', 'Cache Disabled');
         }
@@ -152,30 +161,34 @@ var hardingPointAPI = {
         var jsonObject = "{\"filename\":\"" + parsedFileName + "\",\"filedata\":\"" + JSON.stringify(filedata).replace(/(")/g, "\\\"") + "\"}";
         var optionspost = getOptions(HardingPointConfig.SAVE,jsonObject,'application/json');
         hardingPointAPI.saveCache(this.parseFileName(parsedFileName),JSON.stringify(filedata),function(err,data){
-           if (err){
+
+            if (err){
+                // Ignore Errors Continue
                debug.outputiferror("HardingPointAPI.savefile","saveCache",err);
            }
-        });
-        debug.write('HardingPointAPI.savefile', 'Filename: ' + filename);
-        var reqPost = https.request(optionspost, function(res) {
-            // debug.write('HardingPointAPI.savefile', 'statusCode:' + res.statusCode);
-            // debug.write('HardingPointAPI.savefile', 'headers:' + res.headers);
-            var str = '';
-            res.on('data', function(d) {
-                str+=d;
+
+            debug.write('HardingPointAPI.savefile', 'Filename: ' + filename);
+            var reqPost = https.request(optionspost, function(res) {
+                // debug.write('HardingPointAPI.savefile', 'statusCode:' + res.statusCode);
+                // debug.write('HardingPointAPI.savefile', 'headers:' + res.headers);
+                var str = '';
+                res.on('data', function(d) {
+                    str+=d;
+                });
+                res.on('end', function () {
+                    if (callback){
+                        callback("", str);
+                    }
+                });
             });
-            res.on('end', function () {
-                if (callback){
-                    callback("", str);
-                }
+            reqPost.on('error', function(e) {
+                debug.outputiferror('HardingPointAPI.savefile',"Post Error",e);
+                callback(e, "");
             });
+            reqPost.write(jsonObject);
+            reqPost.end();
+
         });
-        reqPost.on('error', function(e) {
-            debug.outputiferror('HardingPointAPI.savefile',"Post Error",e);
-            callback(e, "");
-        });
-        reqPost.write(jsonObject);
-        reqPost.end();
     },
     logexception:function(exception,env,callback){
         if (this.isConnected){
