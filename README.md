@@ -7,14 +7,19 @@ proven open source technologies allow customers to reduce time to market, burden
 <br/>
 <hr/>
 
-<center>
-
 <b>Deploy Button Will <font color="red">NOT</font> Work Ultil Add-On Approval</b>
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) 
 
-heroku addons:create engagementgraph:test --app &lt;APP_NAME&gt;
-</center>
+###OR
+
+###### Manual Installation
+1. Receive Alpha Access Email/Approval
+1. Create Heroku App
+1. Add GrapheneDB
+1. Open Terminal or Command Prompt
+    1. heroku addons:create engagementgraph:test --app &lt;APP_NAME&gt;
+
 
 <hr/>
 
