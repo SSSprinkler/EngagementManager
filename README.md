@@ -78,6 +78,9 @@ the quicker it builds, learns (via AI), and reacts (via Engagement Manager) from
 
 (It will automatically process the history)
 
+Repeat steps 1-4 for Contact, Opportunity, Case 
+<i>(Processing order matters creating relationships)</i>
+
 ![Harding Point Connecth](https://static.wixstatic.com/media/983560_433e31decb984e7caba4de2bcc4e8a54~mv2_d_3076_1874_s_2.png/v1/fill/w_1897,h_1156,al_c,usm_0.66_1.00_0.01/983560_433e31decb984e7caba4de2bcc4e8a54~mv2_d_3076_1874_s_2.png)
 
 
