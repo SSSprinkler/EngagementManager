@@ -12,10 +12,6 @@ proven open source technologies allow customers to reduce time to market, burden
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) 
 
-<b>OR</B>
-
-[Visit Heroku Add-On Marketplace](https://elements.heroku.com/addons/engagementgraph)
-
 </center>
 
 <hr/>
@@ -186,3 +182,10 @@ When you deploy Graph Connect it automatically processes the history.
     RETURN n, COUNT(r)
     ORDER BY COUNT(r) DESC
     LIMIT 5
+    
+    
+<hr/>    
+    
+    
+[Visit Heroku Add-On Marketplace](https://elements.heroku.com/addons/engagementgraph)
+    
