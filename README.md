@@ -60,7 +60,6 @@ the quicker it builds, learns (via AI), and reacts (via Engagement Manager) from
     <!-- 1. Create New Custom Field in HardingPoint Custom Setting `Name:APIURL Field Type: URL` -->
 
 1. <a href="https://login.salesforce.com/setup/ui/listCustomSettings.apexp" target="_new">Update Custom Settings</a>
-    1. Click on HardingPoint
     1. Click on Manage
     1. Click on New Default Organization Level Value
     1. Update `GatewayToken` with `ENGAGEMENTGRAPH_GATEWAYTOKEN` from Heroku Config Variables
