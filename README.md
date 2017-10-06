@@ -113,31 +113,16 @@ Repeat steps 1-4 for Contact, Opportunity, Case
     1. Deploy Graph Connect Opportunity
     1. Deploy Graph Connect Case
     
-        
-# Cleaning Graph
 
-When you deploy Graph Connect it automatically processes the history.
-
-##### Delete All Data
-    MATCH (n)
-    DETACH DELETE n
-    
-    (Be Careful This Deletes Everything)
-    
-##### Delete One Node with Relationships
-    MATCH (n { name: 'Andres' })
-    DETACH DELETE n
-    
-##### Deleting Using the Salesforce Id
-    
-    MATCH (n { Id: '00Q1I000001xNBdUAM' })
-    DETACH DELETE n
-    
 # Querying Data
+
+When you deploy Graph Connect it automatically processes the history. Always use both sfdcorgid and sfdcid, GraphConnect
+supports loading multiple Salesforce instances into a single graph database. Below are sample queries.
+
 
 ##### Matching By Id
 
-    MATCH (n{Id:'0010x000002IHpJAAW'}) return n;
+    MATCH (n{  sfdcorgid: '00D390000005LxxEAE', sfdcid: '0013900001ZglUaAAJ' }) return n;
 
 ##### Matching Node and Relationships
 
@@ -146,7 +131,7 @@ When you deploy Graph Connect it automatically processes the history.
 
 ##### Return Node and All Relationships
 
-    MATCH (c:Account{sfdcid:"0013900001ZglUQAAZ"}) 
+    MATCH (c:Account{  sfdcorgid: '00D390000005LxxEAE', sfdcid: '0013900001ZglUaAAJ' }) 
     WITH c
     OPTIONAL MATCH (c)-[r]-()
     RETURN c, r
@@ -183,6 +168,25 @@ When you deploy Graph Connect it automatically processes the history.
     RETURN n, COUNT(r)
     ORDER BY COUNT(r) DESC
     LIMIT 5
+
+# Cleaning Graph
+
+
+##### Delete All Data
+    MATCH (n)
+    DETACH DELETE n
+    
+    (Be Careful This Deletes Everything)
+    
+##### Delete One Node with Relationships
+    MATCH (n { name: 'Andres' })
+    DETACH DELETE n
+    
+##### Deleting Using the Salesforce Id
+    
+    MATCH (n {  sfdcorgid: '00D390000005LxxEAE', sfdcid: '0013900001ZglUaAAJ' })
+    DETACH DELETE n
+    
     
     
 <hr/>    
