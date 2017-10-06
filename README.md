@@ -40,7 +40,7 @@ islands.  The [Engagement Graph](http://www.HardingPoint.com) is used for deep a
 reporting, and App Development. The more data and relationships you link with your [Engagement Graph](http://www.HardingPoint.com) 
 the quicker it builds, learns (via AI), and reacts (via Engagement Manager) from your [Neural Network](http://www.HardingPoint.com).
 
-* [`Engagement Manager` - Login: readonly/readonly](https://engagementmanager.herokuapp.com) - <b>Instructions Below</b>
+* [`Engagement Manager`](https://engagementmanager.herokuapp.com) - <b>Instructions Below</b>
 * [`Graph Connect Deploy`](https://graphconnect.herokuapp.com/) - <b>Instructions Below</b>
 * `Neural Network & AI` - Uses Additional Package on Top with your Engagement Graph
 * `Analytics & Reporting` - Uses Additional Package with your Engagement Graph
