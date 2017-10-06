@@ -11,9 +11,9 @@ proven open source technologies allow customers to reduce time to market, burden
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) 
 
-###OR
+<B>OR</B>
 
-###### Manual Installation
+######Manual Installation
 1. Receive Alpha Access Email/Approval
 1. Create Heroku App
 1. Add GrapheneDB
