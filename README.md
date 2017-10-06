@@ -42,8 +42,8 @@ the quicker it builds, learns (via AI), and reacts (via Engagement Manager) from
 
 * [`Engagement Manager`](https://engagementmanager.herokuapp.com) - <b>Instructions Below</b>
 * [`Graph Connect Deploy`](https://graphconnect.herokuapp.com/) - <b>Instructions Below</b>
-* `Neural Network & AI` - Uses Additional Package on Top with your Engagement Graph
-* `Analytics & Reporting` - Uses Additional Package with your Engagement Graph
+* `Neural Network & AI` - Additional Package with your Engagement Graph
+* `Analytics & Reporting` - Additional Package with your Engagement Graph
 
 
 ![Harding Point Engagement Graph](https://static.wixstatic.com/media/983560_7563ad3d347646e1a792e19a2c14e44c~mv2_d_2754_1836_s_2.png/v1/fill/w_1545,h_1030,al_c,usm_0.66_1.00_0.01/983560_7563ad3d347646e1a792e19a2c14e44c~mv2_d_2754_1836_s_2.png "Harding Point Graph Connect")
