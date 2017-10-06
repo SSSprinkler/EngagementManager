@@ -122,11 +122,13 @@ supports loading multiple Salesforce instances into a single graph database. Bel
 
 ##### Matching By Id
 
-    MATCH (n{  sfdcorgid: '00D390000005LxxEAE', sfdcid: '0013900001ZglUaAAJ' }) return n;
+    MATCH (n{  sfdcorgid: '00D390000005LxxEAE', sfdcid: '0013900001ZglUaAAJ' }) 
+    RETURN n;
 
 ##### Matching Node and Relationships
 
-    MATCH (n{Id:'0010x000002IHpJAAW'})-[r]-(b) return b.name, labels(b);
+    MATCH (n{ sfdcorgid: '00D390000005LxxEAE', sfdcid: '0013900001ZglUaAAJ' })-[r]-(b) 
+    RETURN b.name, labels(b);
     
 
 ##### Return Node and All Relationships
