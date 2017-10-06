@@ -137,4 +137,16 @@ When you deploy Graph Connect it automatically processes the history.
     RETURN c, r
    
 
+##### Return Node with most Relationships it points to
+
+    MATCH (n)-[r]->(x)
+    RETURN n, COUNT(r)
+    ORDER BY COUNT(r) DESC
+    LIMIT 5
+
+##### Return Node with most Relationships it pointing to it
     
+    MATCH (n)<-[r]-(x)
+    RETURN n, COUNT(r)
+    ORDER BY COUNT(r) DESC
+    LIMIT 5
