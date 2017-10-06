@@ -13,14 +13,14 @@ proven open source technologies allow customers to reduce time to market, burden
 
 <B>OR</B>
 
-######Manual Installation
+Manual Installation
 1. Receive Alpha Access Email/Approval
 1. Create Heroku App
 1. Add GrapheneDB
 1. Open Terminal or Command Prompt
     1. heroku addons:create engagementgraph:test --app &lt;APP_NAME&gt;
 
-<i>Remove once Approved</i>
+* Remove Once Approved
 
 <hr/>
 
