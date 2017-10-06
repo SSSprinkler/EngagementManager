@@ -4,6 +4,13 @@
 Engagement Manager allows you to quickly ochestrate customer, device, backoffice, and app engagement. By utilizing
 proven open source technologies allow customers to reduce time to market, burden, liability, and ultimately risk.
 
+<hr/>
+<b>Deploy Button Will <font color="red">NOT</font> Work Ultil Add-On Approval</b>
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) or [Visit Heroku Add-On Marketplace](https://elements.heroku.com/addons/engagementgraph)
+
+
+<hr/>
 
 [Live Demo - Login with readonly/readonly](https://engagementmanager.herokuapp.com)
 
@@ -11,6 +18,8 @@ proven open source technologies allow customers to reduce time to market, burden
 
 
 <BR/><BR/>
+
+
 
 [Engagement Graph](http://www.HardingPoint.com) quickly builds and connects your Salesforce data with all your data 
 islands.  The [Engagement Graph](http://www.HardingPoint.com) is used for deep analytics, artificial intelligence, 
@@ -29,9 +38,6 @@ the quicker it builds, learns (via AI), and reacts (via Engagement Manager) from
 
 # Installation Instructions
 
-1. ##### Request Alpha Access to [EngagementGraph AddOn](https://elements.heroku.com/addons/engagementgraph)
-    1. Email EarlyAccess@HardingPoint.com your Heroku Username
-
 1. <a href="https://id.heroku.com/login" target="_new">Login to Heroku</a> or <a href="https://signup.heroku.com" target="_new">Create Heroku Credentials</a>
 
 1. <a href="https://login.salesforce.com" target="_new">Login to Salesforce</a> or <a href="https://developer.salesforce.com/signup" target="_new">Create Salesforce Developer Edition</a>
@@ -44,8 +50,6 @@ the quicker it builds, learns (via AI), and reacts (via Engagement Manager) from
     1. Create New Custom Field in HardingPoint Custom Setting `Name:GatewayToken Field Type: Text(255)`
     1. Create New Custom Field in HardingPoint Custom Setting `Name:graphdburl Field Type:URL Click Save`
     <!-- 1. Create New Custom Field in HardingPoint Custom Setting `Name:APIURL Field Type: URL` -->
-
-1. [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 1. ##### Check email for Alpha Invite `Will Be Removed After Release`
     1. Install `engagementgraph` after receiving the Alpha invite from Heroku.  Command below.
