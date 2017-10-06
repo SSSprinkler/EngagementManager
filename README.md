@@ -64,9 +64,6 @@ the quicker it builds, learns (via AI), and reacts (via Engagement Manager) from
     1. Update `graphdburl` with `GRAPHCONNECT_URL` from Heroku Config Variables (You can use any Neo4j URL)
     <!-- 1. Update `APIURL` with `ENGAGEMENTGRAPH_APIURL` from Heroku Config Variables -->
         
-1. <a href="https://login.salesforce.com/02u" target="_new">Edit Connected App for Salesforce</a>
-    1. update the `Callback URL` to be `https://<YOUR_APP_NAME>.herokuapp.com/_oauth_callback`
-
 # Deploying Graph Connect for Accounts
 
 1. https://graphconnect.herokuapp.com/ or [Install your Own](https://github.com/HardingPoint/graphconnect)
