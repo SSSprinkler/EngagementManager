@@ -8,6 +8,7 @@ proven open source technologies allow customers to reduce time to market, burden
 <hr/>
 
 <center>
+
 <b>Deploy Button Will <font color="red">NOT</font> Work Ultil Add-On Approval</b>
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) 
