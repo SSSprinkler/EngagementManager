@@ -7,13 +7,17 @@ proven open source technologies allow customers to reduce time to market, burden
 <br/>
 <hr/>
 
+<center>
 <b>Deploy Button Will <font color="red">NOT</font> Work Ultil Add-On Approval</b>
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) or [Visit Heroku Add-On Marketplace](https://elements.heroku.com/addons/engagementgraph)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) &nbsp;&nbsp;&nbsp; or &nbsp;&nbsp;&nbsp; [Visit Heroku Add-On Marketplace](https://elements.heroku.com/addons/engagementgraph)
+
+</center>
 
 <hr/>
 
 <br/>
+
 [Live Demo - Login with readonly/readonly](https://engagementmanager.herokuapp.com)
 
 [![Harding Point Engagement Manager](https://static.wixstatic.com/media/983560_c5c91d5d1280442180cb1cce09d1368e~mv2_d_2840_1450_s_2.png/v1/fill/w_2120,h_1000,al_c,usm_0.66_1.00_0.01/983560_c5c91d5d1280442180cb1cce09d1368e~mv2_d_2840_1450_s_2.png)](https://engagementmanager.herokuapp.com/)
