@@ -1,5 +1,6 @@
 # Harding Point : Engagement Manager
  
+ 
 Engagement Manager allows you to quickly ochestrate customer, device, backoffice, and app engagement. 
 
 
@@ -44,11 +45,6 @@ the quicker it builds, learns (via AI), and reacts (via Engagement Manager) from
     <!-- 1. Create New Custom Field in HardingPoint Custom Setting `Name:APIURL Field Type: URL` -->
 
 1. [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-    1. Choose Heroku App Name
-    1. Past Consumer Key & Consumer Secret into install boxes
-        1. Values from above when you created 'Connected App' in Salesforce.
-    1. Go to Heroku Config Vars copy `GRAPHCONNECT_URL`  (Needed in Salesforce)
 
 1. ##### Check email for Alpha Invite `Will Be Removed After Release`
     1. Install `engagementgraph` after receiving the Alpha invite from Heroku.  Command below.
