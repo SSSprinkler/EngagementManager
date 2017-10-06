@@ -12,6 +12,7 @@ proven open source technologies allow customers to reduce time to market, burden
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) 
 
+heroku addons:create engagementgraph:test --app &lt;APP_NAME&gt;
 </center>
 
 <hr/>
@@ -56,13 +57,6 @@ the quicker it builds, learns (via AI), and reacts (via Engagement Manager) from
     1. Create New Custom Field in HardingPoint Custom Setting `Name:GatewayToken Field Type: Text(255)`
     1. Create New Custom Field in HardingPoint Custom Setting `Name:graphdburl Field Type:URL Click Save`
     <!-- 1. Create New Custom Field in HardingPoint Custom Setting `Name:APIURL Field Type: URL` -->
-
-1. ##### Check email for Alpha Invite `Will Be Removed After Release`
-    1. Install `engagementgraph` after receiving the Alpha invite from Heroku.  Command below.
-        1. [Install Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
-        1. Running at Terminal or Command Prompt (After installing Heroku CLI)
-            1. heroku login
-            1. heroku addons:create engagementgraph:test --app YOUR_APP_NAME_HERE
 
 1. <a href="https://login.salesforce.com/setup/ui/listCustomSettings.apexp" target="_new">Update Custom Settings</a>
     1. Click on HardingPoint
