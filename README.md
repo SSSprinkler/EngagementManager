@@ -4,7 +4,6 @@
 Engagement Manager allows you to quickly ochestrate customer, device, backoffice, and app engagement. By utilizing
 proven open source technologies allow customers to reduce time to market, burden, liability, and ultimately risk.
 
-<br/>
 <hr/>
 
 <b>Deploy Button Will <font color="red">NOT</font> Work Ultil Add-On Approved (Use Manual Instructions Below)</b>
@@ -23,8 +22,6 @@ Manual Installation
 * Remove Once Approved
 
 <hr/>
-
-<br/>
 
 [Live Demo - Login with readonly/readonly](https://engagementmanager.herokuapp.com)
 
