@@ -18,6 +18,7 @@ Manual Installation
 1. Add GrapheneDB
 1. Open Terminal or Command Prompt
     1. heroku addons:create engagementgraph:test --app &lt;APP_NAME&gt;
+1. Follow "Installation Instructions" Below
 
 * Remove Once Approved
 
