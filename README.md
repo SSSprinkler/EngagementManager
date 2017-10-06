@@ -150,3 +150,21 @@ When you deploy Graph Connect it automatically processes the history.
     RETURN n, COUNT(r)
     ORDER BY COUNT(r) DESC
     LIMIT 5
+    
+    
+#### Salesforce Specific Queries
+
+##### Accounts with most Opportunities
+
+    MATCH (n:Account)<-[r]-(x:Opportunity)
+    RETURN n, COUNT(r)
+    ORDER BY COUNT(r) DESC
+    LIMIT 5
+    
+    
+##### Accounts with most Cases
+
+    MATCH (n:Account)<-[r]-(x:Case)
+    RETURN n, COUNT(r)
+    ORDER BY COUNT(r) DESC
+    LIMIT 5
