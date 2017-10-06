@@ -1,7 +1,8 @@
 # Harding Point : Engagement Manager
  
  
-Engagement Manager allows you to quickly ochestrate customer, device, backoffice, and app engagement. 
+Engagement Manager allows you to quickly ochestrate customer, device, backoffice, and app engagement. By utilizing
+proven open source technologies allow customers to reduce time to market, burden, liability, and ultimately risk.
 
 
 [Live Demo - Login with readonly/readonly](https://engagementmanager.herokuapp.com)
