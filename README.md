@@ -20,6 +20,7 @@ proven open source technologies allow customers to reduce time to market, burden
 1. Open Terminal or Command Prompt
     1. heroku addons:create engagementgraph:test --app &lt;APP_NAME&gt;
 
+<i>Remove once Approved</i>
 
 <hr/>
 
