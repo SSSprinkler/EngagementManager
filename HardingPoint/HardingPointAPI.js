@@ -10,7 +10,7 @@
 
 var https = require('https');
 
-var HardingPointConfig = require("./HardingPointConfig.js");
+var HardingPointConfig = require("./HardingPointConfig");
 var debug = require("./debug.js");
 const fs = require('fs');
 
@@ -23,7 +23,8 @@ function getHeaders(jsonObject,contenttype){
         'Content-Type' : contenttype,
         'Content-Length' : Buffer.byteLength(jsonObject, 'utf8'),
         'authorizationToken' : HardingPointConfig.APITOKEN,
-        'x-api-key' : HardingPointConfig.GATEWAYTOKEN
+        'x-api-key' : HardingPointConfig.GATEWAYTOKEN,
+        'environment' : HardingPointConfig.ENVIRONMENT
     };
     return postheaders;
 }

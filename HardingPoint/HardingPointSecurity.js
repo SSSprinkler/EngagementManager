@@ -15,8 +15,10 @@ var config = require("./HardingPointConfig");
 
 var HardingPointSecurity = module.exports = {
     // This is a global admin user
-    AdminUser: process.env.ENGAGEMENTGRAPH_ADMINUSER || "admin",
-    AdminPwd: process.env.ENGAGEMENTGRAPH_ADMINPWD || config.APITOKEN, // Unique Per Customer
+    AdminUser: config.ADMINUSER,
+    AdminPwd: config.ADMINPWD, // Unique Per Customer
+    ReadonlyUser: config.READONLYUSER,
+    ReadonlyPwd: config.READONLYPWD,
     SecureSalt: config.GATEWAYTOKEN // Gateway Token Is Unique Per Customer Used as Private Key,
 };
 
@@ -28,15 +30,14 @@ function GenerateHash(unsecure){
 HardingPointSecurity.adminAuth = {
     type: "credentials",
     users: function(username) {
-        if (HardingPointSecurity.AdminUser == username) {
+        if (HardingPointSecurity.AdminUser.toLowerCase() == username.toLowerCase()) {
             // debug.write("HardingPointSettings.users", "Setting Admin Permissions : " + username);
             return when.resolve({username:username,permissions:"*"});
         } else {
-            if (username.toLowerCase()=="readonly"){
+            if (username.toLowerCase()==HardingPointSecurity.ReadonlyUser.toLowerCase()){
                 // debug.write("HardingPointSettings.users", "Read Only Permissions: " + username);
                 return when.resolve({username:username,permissions:"read"});
-            }
-            else{
+            } else {
                 debug.write("HardingPointSettings.users", "No Permissions: " + username);
                 return when.resolve(null);
             }
@@ -48,19 +49,19 @@ HardingPointSecurity.adminAuth = {
     //},
     authenticate: function(username, password) {
         try{
-            if (HardingPointSecurity.AdminUser == username &&
+            if (HardingPointSecurity.AdminUser.toLowerCase() == username.toLowerCase() &&
                 HardingPointSecurity.AdminPwd == password) {
                 // debug.write("HardingPointSettings.authenticate", "Setting Admin Permissions: " + username);
                 // debug.write("HardingPointSettings.authenticate", "Secure Hash: " + GenerateHash(password));
                 return when.resolve({username:username,permissions:"*"});
             } else {
-                if (username.toLowerCase()=="readonly" && password.toLowerCase()=="readonly"){
+                if (username.toLowerCase()==HardingPointSecurity.ReadonlyUser.toLowerCase() && password==HardingPointSecurity.ReadonlyPwd){
                     // debug.write("HardingPointSettings.authenticate", "Read Only Permissions: " + username);
                     return when.resolve({username:username,permissions:"read"});
-                }
-                else{
+                } else {
                     debug.write("HardingPointSettings.authenticate", "No Permissions: " + username);
-                    debug.write("HardingPointSettings.authenticate", HardingPointSecurity.AdminUser);
+                    debug.write("HardingPointSettings.authenticate", "Read Only User: " + HardingPointSecurity.ReadonlyUser.toLowerCase());
+                    // debug.write("HardingPointSettings.authenticate", "Does Pwd Match: " + (password == HardingPointSecurity.ReadonlyPwd).toString());
                     return when.resolve(null);
                 }
             }

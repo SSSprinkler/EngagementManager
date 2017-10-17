@@ -11,17 +11,29 @@
     },
     {
       "plan": "engagementgraph:test",
-      "as": "ENGAGEMENTGRAPH"
+      "as": "ENGAGEMENTMANAGER"
     }
   ],
   "env": {
-    "ENGAGEMENTMANAGER_APIVERSION": {
-      "description": "Harding Point API Version",
-      "value": "v9.3"
+    "ENGAGEMENTMANAGER_ENVIRONMENT":{
+      "description": "If you run multiple environments you can group servers into Development, QA, Production (or any name of your choosing)",
+      "value": "Production"
+    },
+    "ENGAGEMENTMANAGER_READONLYUSER": {
+      "description": "Readonly User Name",
+      "value": "readonly"
+    },
+    "ENGAGEMENTMANAGER_READONLYPWD": {
+      "description": "Readonly User Name",
+      "value": "!Readonly1"
     },
     "ENGAGEMENTMANAGER_URL": {
       "description": "Harding Point API URL (prod, qa, dev)",
       "value": "prod.hardingpoint.com"
+    },
+    "ENGAGEMENTMANAGER_APIVERSION": {
+      "description": "Harding Point API Version",
+      "value": "v9.3"
     },
     "ENGAGEMENTMANAGER_CACHE_DIR": {
       "description": "Temporary cache for Heroku ephemeral file system",

@@ -10,7 +10,7 @@
     },
     "main": "red/red.js",
     "scripts": {
-        "start": "node red.js",
+        "start": "node --max-old-space-size=384 ./red.js --settings ./HardingPoint/HardingPointSettings.js",
         "test": "grunt",
         "build": "grunt build"
     },
