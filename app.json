@@ -16,7 +16,7 @@
   ],
   "env": {
     "ENGAGEMENTMANAGER_ENVIRONMENT":{
-      "description": "If you run multiple environments you can group servers into Development, QA, Production (or any name of your choosing)",
+      "description": "If you run multiple environments you can group servers into Production, QA, Development (or any name of your choosing)",
       "value": "Production"
     },
     "ENGAGEMENTMANAGER_READONLYUSER": {
@@ -25,7 +25,7 @@
     },
     "ENGAGEMENTMANAGER_READONLYPWD": {
       "description": "Readonly User Name",
-      "value": "!Readonly1"
+      "value": "HardingPoint!"
     },
     "ENGAGEMENTMANAGER_URL": {
       "description": "Harding Point API URL (prod, qa, dev)",
