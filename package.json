@@ -12,7 +12,8 @@
     "scripts": {
         "start": "node --max-old-space-size=384 ./red.js --settings ./HardingPoint/HardingPointSettings.js",
         "test": "grunt",
-        "build": "grunt build"
+        "build": "grunt build",
+        "deploy": "git push origin master && git push heroku master"
     },
     "bin": {
         "node-red": "./red.js",
