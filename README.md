@@ -4,20 +4,15 @@
 Engagement Manager allows you to quickly ochestrate customer, device, backoffice, and app engagement. By utilizing
 proven open source technologies allow customers to reduce time to market, burden, liability, and ultimately risk.
 
-<hr/>
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) 
 
-<B>OR</B>
+## Engagement Manager : Credentials
 
-Manual Installation
-1. Create Heroku App
-1. Add GrapheneDB
-1. Open Terminal or Command Prompt
-    1. heroku addons:create engagementgraph:test --app &lt;APP_NAME&gt;
-1. Follow "Installation Instructions" Below
-
-* Remove Once Approved
+1. Click on "Settings" in your App in Heroku
+1. Click Reveal Config Vars
+1. Admin User/Pwd - ENGAGEMENTGRAPH_ADMINUSER / ENGAGEMENTGRAPH_ADMINPWD 
+1. Read Only User/Pwd - ENGAGEMENTMANAGER_READONLYUSER / ENGAGEMENTMANAGER_READONLYPWD
 
 <hr/>
 
