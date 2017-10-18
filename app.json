@@ -11,7 +11,7 @@
     },
     {
       "plan": "engagementgraph:test",
-      "as": "ENGAGEMENTMANAGER"
+      "as": "ENGAGEMENTGRAPH"
     }
   ],
   "env": {
