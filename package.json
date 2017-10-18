@@ -1,12 +1,12 @@
 {
-    "name": "node-red",
+    "name": "engagementmaanger",
     "version": "0.17.5",
-    "description": "A visual tool for wiring the Internet of Things",
-    "homepage": "http://nodered.org",
+    "description": "Harding Point : Engagement Manager runs on Heroku",
+    "homepage": "https://www.hardingpoint.com/",
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
-        "url": "https://github.com/node-red/node-red.git"
+        "url": "https://github.com/HardingPoint/EngagementManager.git"
     },
     "main": "red/red.js",
     "scripts": {
@@ -21,10 +21,7 @@
     },
     "contributors": [
         {
-            "name": "Nick O'Leary"
-        },
-        {
-            "name": "Dave Conway-Jones"
+            "name": "Joe Gaska"
         }
     ],
     "keywords": [
@@ -67,7 +64,6 @@
         "node-red-contrib-neo4j": "git+https://github.com/gaskaj/node-red-contrib-neo4j.git",
         "node-red-contrib-postgres": "^0.6.1",
         "node-red-contrib-postgres-listen": "^0.1.0",
-        "node-red-contrib-salesforce": "0.0.5",
         "node-red-node-aws": "^0.1.1",
         "node-red-node-email": "0.1.*",
         "node-red-node-feedparser": "0.1.*",
