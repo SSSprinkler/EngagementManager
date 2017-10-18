@@ -1,11 +1,10 @@
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) 
+
 # Harding Point : Engagement Manager
  
  
 Engagement Manager allows you to quickly ochestrate customer, device, backoffice, and app engagement. By utilizing
 proven open source technologies allow customers to reduce time to market, burden, liability, and ultimately risk.
-
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) 
 
 ## Engagement Manager : Credentials
 
