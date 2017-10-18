@@ -59,7 +59,7 @@
         "mustache": "2.3.0",
         "node-red-contrib-aws": "^0.1.6",
         "node-red-contrib-exacttarget": "0.0.3",
-        "node-red-contrib-force": "0.0.6",
+        "node-red-contrib-force": "git+https://github.com/HardingPoint/node-red-contrib-force.git",
         "node-red-contrib-ftp-sftp": "^1.7.0",
         "node-red-contrib-neo4j": "git+https://github.com/gaskaj/node-red-contrib-neo4j.git",
         "node-red-contrib-postgres": "^0.6.1",
