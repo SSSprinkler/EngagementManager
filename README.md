@@ -6,14 +6,11 @@ proven open source technologies allow customers to reduce time to market, burden
 
 <hr/>
 
-<b>Deploy Button Will <font color="red">NOT</font> Work Ultil Add-On Approved (Use Manual Instructions Below)</b>
-
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) 
 
 <B>OR</B>
 
 Manual Installation
-1. Receive Alpha Access Email/Approval
 1. Create Heroku App
 1. Add GrapheneDB
 1. Open Terminal or Command Prompt
