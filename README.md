@@ -73,9 +73,9 @@ Synchrionize your Salesforce data with industry leading open source graph databa
 
 1. https://graphconnect.herokuapp.com/
 
-1. Click [`Login via Salesforce - Normal Instance`]
+1. Click [`Login via Salesforce - Normal Instance`] or [`Login via Salesforce - Sandbox Instance`]
 
-    1. If you get a `Routing` error it is because Salesforce has not finished updating (wait 4 minutes)
+    1. Developer Edition = [`Login via Salesforce - Normal Instance`]
 
 1. Select SObject `Account` from SObject Dropdown
 
