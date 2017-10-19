@@ -61,8 +61,6 @@ Synchrionize your Salesforce data with industry leading open source graph databa
     1. Click on New Default Organization Level Value
     1. Update `GatewayToken` with `ENGAGEMENTGRAPH_GATEWAYTOKEN` from Heroku Config Variables
     1. Update `ApiToken` with `ENGAGEMENTGRAPH_APITOKEN` from Heroku Config Variables
-        1. Request Early Access by emailing EarlyAccess@HardingPoint.com your Heroku Username 
-        1. All Alpha testers will be given free access
     1. Update `graphdburl` with `GRAPHCONNECT_URL` from Heroku Config Variables (You can use any Neo4j URL)
     <!-- 1. Update `APIURL` with `ENGAGEMENTGRAPH_APIURL` from Heroku Config Variables -->
         
