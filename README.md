@@ -41,7 +41,7 @@ the quicker it builds, learns (via AI), and reacts (via Engagement Manager) from
 
 Synchrionize your Salesforce data with industry leading open source graph database. Utilize the engagement graph to build, extend, and drive your customer engagement.
 
-## Installation Instructions
+## Configuration Instructions
 
 1. <a href="https://id.heroku.com/login" target="_new">Login to Heroku</a> or <a href="https://signup.heroku.com" target="_new">Create Heroku Credentials</a>
 
@@ -71,7 +71,7 @@ Synchrionize your Salesforce data with industry leading open source graph databa
         
 # Deploying Graph Connect for Accounts
 
-1. https://graphconnect.herokuapp.com/ or [Install your Own](https://github.com/HardingPoint/graphconnect)
+1. https://graphconnect.herokuapp.com/
 
 1. Click [`Login via Salesforce - Normal Instance`]
 
