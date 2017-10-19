@@ -43,7 +43,7 @@ Synchrionize your Salesforce data with industry leading open source graph databa
 
 ## Configuration Instructions
 
-1. <a href="https://id.heroku.com/login" target="_new">Login to Heroku</a> or <a href="https://signup.heroku.com" target="_new">Create Heroku Credentials</a>
+1. Assumes you completed [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) Above
 
 1. <a href="https://login.salesforce.com" target="_new">Login to Salesforce</a> or <a href="https://developer.salesforce.com/signup" target="_new">Create Salesforce Developer Edition</a>
 
