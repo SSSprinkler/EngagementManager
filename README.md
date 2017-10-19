@@ -35,7 +35,13 @@ the quicker it builds, learns (via AI), and reacts (via Engagement Manager) from
 * `Analytics & Reporting` - Additional Package with your Engagement Graph
 
 
-# Installation Instructions
+<Br/>
+
+# Harding Point : Graph Connect
+
+Synchrionize your Salesforce data with industry leading open source graph database. Utilize the engagement graph to build, extend, and drive your customer engagement.
+
+## Installation Instructions
 
 1. <a href="https://id.heroku.com/login" target="_new">Login to Heroku</a> or <a href="https://signup.heroku.com" target="_new">Create Heroku Credentials</a>
 
