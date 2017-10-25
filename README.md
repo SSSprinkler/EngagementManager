@@ -12,7 +12,7 @@ quicker it builds, learns (via AI), and reacts (via Engagement Manager) from you
 * `Neural Network & AI` - Additional Package with your Engagement Graph
 * `Analytics & Reporting` - Additional Package with your Engagement Graph
 
-## Configuration Instructions
+## Deployment & Configuration Instructions
 
 1. [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
@@ -36,12 +36,18 @@ quicker it builds, learns (via AI), and reacts (via Engagement Manager) from you
     <!-- 1. Update `APIURL` with `ENGAGEMENTGRAPH_APIURL` from Heroku Config Variables -->
             
         
-# Graph Connect 
-
+1. Configure [Graf Connect](http://www.HardingPoint.com)
     1. Heroku - Click "Resources" Tab 
-    2. Click on "Engagement Framework"
+    1. Click on "Engagement Framework"
+        1. Login with Salesforce
+        1. Select Account
+        1. Click [Connect to Graph] (Repeat for Contact/Opportunity/Case)
+            ![Harding Point Connect](https://static.wixstatic.com/media/983560_34b6e9735e6340d4bc37d4406c4ea43d~mv2_d_3104_1790_s_2.png/v1/fill/w_1730,h_998,al_c,usm_0.66_1.00_0.01/983560_34b6e9735e6340d4bc37d4406c4ea43d~mv2_d_3104_1790_s_2.png)
 
-![Harding Point Connect](https://static.wixstatic.com/media/983560_34b6e9735e6340d4bc37d4406c4ea43d~mv2_d_3104_1790_s_2.png/v1/fill/w_1730,h_998,al_c,usm_0.66_1.00_0.01/983560_34b6e9735e6340d4bc37d4406c4ea43d~mv2_d_3104_1790_s_2.png)
+
+# Completed 
+
+Ready to use Engagement Manager and Engagement Graph
 
 
 ## Engagement Manager
