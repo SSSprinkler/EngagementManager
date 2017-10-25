@@ -8,7 +8,7 @@ Development. The more data and relationships you link with your [Engagement Grap
 quicker it builds, learns (via AI), and reacts (via Engagement Manager) from your [Neural Network](http://www.HardingPoint.com).
 
 * [`Engagement Manager`](https://engagementmanager.herokuapp.com) - <b>Instructions Below</b>
-* [`Graph Connect Deploy`](https://graphconnect.herokuapp.com/) - <b>Instructions Below</b>
+* [`Graf Connect`](https://graphconnect.herokuapp.com/) - <b>Instructions Below</b>
 * `Neural Network & AI` - Additional Package with your Engagement Graph
 * `Analytics & Reporting` - Additional Package with your Engagement Graph
 
@@ -36,7 +36,7 @@ quicker it builds, learns (via AI), and reacts (via Engagement Manager) from you
     <!-- 1. Update `APIURL` with `ENGAGEMENTGRAPH_APIURL` from Heroku Config Variables -->
             
         
-1. Configure [Graf Connect](http://www.HardingPoint.com)
+1. Configure [`Graf Connect`](https://graphconnect.herokuapp.com/)
     1. Heroku - Click "Resources" Tab 
     1. Click on "Engagement Framework"
         1. Login with Salesforce
