@@ -3,41 +3,16 @@
 # Harding Point : Engagement Manager
  
  
-Engagement Manager allows you to quickly ochestrate customer, device, backoffice, and app engagement. Utilizing
-proven open source technologies allows customers to reduce time to market, burden, liability, and ultimately risk.
-
-## Engagement Manager : Credentials
-
-1. Click on "Settings" in your App in Heroku
-1. Click Reveal Config Vars
-1. Admin User/Pwd - ENGAGEMENTGRAPH_ADMINUSER / ENGAGEMENTGRAPH_ADMINPWD 
-1. Read Only User/Pwd - ENGAGEMENTMANAGER_READONLYUSER / ENGAGEMENTMANAGER_READONLYPWD
-
-<hr/>
-
-[Live Demo - Login with readonly/readonly](https://engagementmanager.herokuapp.com)
-
-[![Harding Point Engagement Manager](https://static.wixstatic.com/media/983560_c5c91d5d1280442180cb1cce09d1368e~mv2_d_2840_1450_s_2.png/v1/fill/w_2120,h_1000,al_c,usm_0.66_1.00_0.01/983560_c5c91d5d1280442180cb1cce09d1368e~mv2_d_2840_1450_s_2.png)](https://engagementmanager.herokuapp.com/)
-
-<br/>
-<br/>
-
-[Engagement Graph](http://www.HardingPoint.com) quickly builds and connects your Salesforce data with all your data 
-islands.  The [Engagement Graph](http://www.HardingPoint.com) is used for deep analytics, artificial intelligence, 
-reporting, and App Development. The more data and relationships you link with your [Engagement Graph](http://www.HardingPoint.com) 
-the quicker it builds, learns (via AI), and reacts (via Engagement Manager) from your [Neural Network](http://www.HardingPoint.com).
+[Engagement Manager](http://www.HardingPoint.com) allows you to quickly ochestrate Salesforce data, customer engagement, 
+device, backoffice, and app engagement. The [Engagement Graph](http://www.HardingPoint.com) is used within the 
+[Engagement Manager](http://www.HardingPoint.com) for deep analytics, artificial intelligence, reporting, and App 
+Development. The more data and relationships you link with your [Engagement Graph](http://www.HardingPoint.com) the 
+quicker it builds, learns (via AI), and reacts (via Engagement Manager) from your [Neural Network](http://www.HardingPoint.com).
 
 * [`Engagement Manager`](https://engagementmanager.herokuapp.com) - <b>Instructions Below</b>
 * [`Graph Connect Deploy`](https://graphconnect.herokuapp.com/) - <b>Instructions Below</b>
 * `Neural Network & AI` - Additional Package with your Engagement Graph
 * `Analytics & Reporting` - Additional Package with your Engagement Graph
-
-
-<Br/>
-
-# Harding Point : Graph Connect
-
-Synchronize your Salesforce data with an industry leading open source graph database. Utilize the engagement graph to build, extend, and drive your customer engagement.
 
 ## Configuration Instructions
 
@@ -63,7 +38,7 @@ Synchronize your Salesforce data with an industry leading open source graph data
     <!-- 1. Update `APIURL` with `ENGAGEMENTGRAPH_APIURL` from Heroku Config Variables -->
             
         
-# Graph Connect
+# Graph Connect 
 
     1. Heroku - Click "Resources" Tab 
     2. Click on "Engagement Framework"
@@ -71,7 +46,25 @@ Synchronize your Salesforce data with an industry leading open source graph data
 ![Harding Point Connect](https://static.wixstatic.com/media/983560_34b6e9735e6340d4bc37d4406c4ea43d~mv2_d_3104_1790_s_2.png/v1/fill/w_1730,h_998,al_c,usm_0.66_1.00_0.01/983560_34b6e9735e6340d4bc37d4406c4ea43d~mv2_d_3104_1790_s_2.png)
 
 
-# View Graph
+## Engagement Manager
+
+###Credentials
+
+1. Click on "Settings" in your App in Heroku
+1. Click Reveal Config Vars
+1. Admin User/Pwd - ENGAGEMENTGRAPH_ADMINUSER / ENGAGEMENTGRAPH_ADMINPWD 
+1. Read Only User/Pwd - ENGAGEMENTMANAGER_READONLYUSER / ENGAGEMENTMANAGER_READONLYPWD
+
+<hr/>
+
+[Live Demo - Login with readonly/readonly](https://engagementmanager.herokuapp.com)
+
+[![Harding Point Engagement Manager](https://static.wixstatic.com/media/983560_c5c91d5d1280442180cb1cce09d1368e~mv2_d_2840_1450_s_2.png/v1/fill/w_2120,h_1000,al_c,usm_0.66_1.00_0.01/983560_c5c91d5d1280442180cb1cce09d1368e~mv2_d_2840_1450_s_2.png)](https://engagementmanager.herokuapp.com/)
+
+<br/>
+<br/>
+
+### View Graph
 
 ![Harding Point Engagement Graph](https://static.wixstatic.com/media/983560_7563ad3d347646e1a792e19a2c14e44c~mv2_d_2754_1836_s_2.png/v1/fill/w_1545,h_1030,al_c,usm_0.66_1.00_0.01/983560_7563ad3d347646e1a792e19a2c14e44c~mv2_d_2754_1836_s_2.png "Harding Point Graph Connect")
     
@@ -84,7 +77,7 @@ Synchronize your Salesforce data with an industry leading open source graph data
         1. You should see your object listed; Click on it (ex Account)
         
         
-# Reproducing Engagement Graph From Above Image
+### Reproducing Engagement Graph From Above Image
 
     1. Deploy Graph Connect Account (Did above already)
     1. Deploy Graph Connect Contact
@@ -92,7 +85,7 @@ Synchronize your Salesforce data with an industry leading open source graph data
     1. Deploy Graph Connect Case
     
 
-# Querying Data
+### Querying Data
 
 When you deploy Graph Connect it automatically processes the history. Always use both sfdcorgid and sfdcid, as GraphConnect
 supports loading multiple Salesforce instances into a single graph database. Below are sample queries.
