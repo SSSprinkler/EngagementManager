@@ -88,6 +88,7 @@ function getCredentials() {
             }
         }else{
             if (data){
+                debug.write("HardingPointStorage.getCredentials", "Loaded Credentials");
                 defer.resolve(JSON.parse(data));
             }else{
                 defer.resolve({});
@@ -98,6 +99,7 @@ function getCredentials() {
 }
 
 function saveCredentials(credentials) {
+    debug.write("HardingPointStorage.saveCredentials", JSON.stringify(credentials));
     var defer = when.defer();
     HardingPointAPI.savefile("credentials.json",credentials,function(error,data){
         if (error){
@@ -144,6 +146,7 @@ function saveSettings (settings) {
 }
 
 function getFlow(fn) {
+    debug.write("HardingPointStorage.getFlow",JSON.stringify(fn));
     var defer = when.defer();
     HardingPointAPI.getfile("settings.json",function(error,data){
         if (error) {

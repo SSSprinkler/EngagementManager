@@ -22,8 +22,6 @@ proven open source technologies allow customers to reduce time to market, burden
 <br/>
 <br/>
 
-
-
 [Engagement Graph](http://www.HardingPoint.com) quickly builds and connects your Salesforce data with all your data 
 islands.  The [Engagement Graph](http://www.HardingPoint.com) is used for deep analytics, artificial intelligence, 
 reporting, and App Development. The more data and relationships you link with your [Engagement Graph](http://www.HardingPoint.com) 
@@ -63,33 +61,20 @@ Synchrionize your Salesforce data with industry leading open source graph databa
     1. Update `ApiToken` with `ENGAGEMENTGRAPH_APITOKEN` from Heroku Config Variables
     1. Update `graphdburl` with `GRAPHCONNECT_URL` from Heroku Config Variables (You can use any Neo4j URL)
     <!-- 1. Update `APIURL` with `ENGAGEMENTGRAPH_APIURL` from Heroku Config Variables -->
+            
         
-    
-        
-![Harding Point Engagement Graph](https://static.wixstatic.com/media/983560_7563ad3d347646e1a792e19a2c14e44c~mv2_d_2754_1836_s_2.png/v1/fill/w_1545,h_1030,al_c,usm_0.66_1.00_0.01/983560_7563ad3d347646e1a792e19a2c14e44c~mv2_d_2754_1836_s_2.png "Harding Point Graph Connect")
-        
-        
-# Deploying Graph Connect for Accounts
+# Graph Connect
 
-1. https://graphconnect.herokuapp.com/
+    1. Heroku - Click "Resources" Tab 
+    2. Click on "Engagement Framework"
 
-1. Click [`Login via Salesforce - Normal Instance`] or [`Login via Salesforce - Sandbox Instance`]
-
-    1. Developer Edition = [`Login via Salesforce - Normal Instance`]
-
-1. Select SObject `Account` from SObject Dropdown
-
-1. Click [`Connect to Graph`]
-
-(It will automatically process the history)
-
-Repeat steps 1-4 for Contact, Opportunity, Case 
-<i>(Processing order matters creating relationships)</i>
-
-![Harding Point Connecth](https://static.wixstatic.com/media/983560_433e31decb984e7caba4de2bcc4e8a54~mv2_d_3076_1874_s_2.png/v1/fill/w_1897,h_1156,al_c,usm_0.66_1.00_0.01/983560_433e31decb984e7caba4de2bcc4e8a54~mv2_d_3076_1874_s_2.png)
+![Harding Point Connect](https://static.wixstatic.com/media/983560_34b6e9735e6340d4bc37d4406c4ea43d~mv2_d_3104_1790_s_2.png/v1/fill/w_1730,h_998,al_c,usm_0.66_1.00_0.01/983560_34b6e9735e6340d4bc37d4406c4ea43d~mv2_d_3104_1790_s_2.png)
 
 
 # View Graph
+
+![Harding Point Engagement Graph](https://static.wixstatic.com/media/983560_7563ad3d347646e1a792e19a2c14e44c~mv2_d_2754_1836_s_2.png/v1/fill/w_1545,h_1030,al_c,usm_0.66_1.00_0.01/983560_7563ad3d347646e1a792e19a2c14e44c~mv2_d_2754_1836_s_2.png "Harding Point Graph Connect")
+    
     
     1. Go back to your Heroku Dashboard and into <YOUR_APP_NAME>
     1. Click Resources
