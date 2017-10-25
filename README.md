@@ -3,8 +3,8 @@
 # Harding Point : Engagement Manager
  
  
-Engagement Manager allows you to quickly ochestrate customer, device, backoffice, and app engagement. By utilizing
-proven open source technologies allow customers to reduce time to market, burden, liability, and ultimately risk.
+Engagement Manager allows you to quickly ochestrate customer, device, backoffice, and app engagement. Utilizing
+proven open source technologies allows customers to reduce time to market, burden, liability, and ultimately risk.
 
 ## Engagement Manager : Credentials
 
@@ -37,7 +37,7 @@ the quicker it builds, learns (via AI), and reacts (via Engagement Manager) from
 
 # Harding Point : Graph Connect
 
-Synchrionize your Salesforce data with industry leading open source graph database. Utilize the engagement graph to build, extend, and drive your customer engagement.
+Synchronize your Salesforce data with an industry leading open source graph database. Utilize the engagement graph to build, extend, and drive your customer engagement.
 
 ## Configuration Instructions
 
@@ -80,8 +80,8 @@ Synchrionize your Salesforce data with industry leading open source graph databa
     1. Click Resources
     1. Click GrapheneDB
         1. Scroll to bottom click `Launch` for Neo4j Browser
-        1. Click Icon Top Left Corner
-        1. You should see your object listed Click on it (ex Account)
+        1. Click Icon in the Top Left Corner
+        1. You should see your object listed; Click on it (ex Account)
         
         
 # Reproducing Engagement Graph From Above Image
@@ -94,7 +94,7 @@ Synchrionize your Salesforce data with industry leading open source graph databa
 
 # Querying Data
 
-When you deploy Graph Connect it automatically processes the history. Always use both sfdcorgid and sfdcid, GraphConnect
+When you deploy Graph Connect it automatically processes the history. Always use both sfdcorgid and sfdcid, as GraphConnect
 supports loading multiple Salesforce instances into a single graph database. Below are sample queries.
 
 
