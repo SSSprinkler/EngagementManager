@@ -42,7 +42,7 @@ quicker it builds, learns (via AI), and reacts (via Engagement Manager) from you
     1. Tab Style: `Compass`
         1. Click `Next`
     1. Button or Link URL
-        1. Copy -> https://graphconnect.hardingpoint.com?embedded=true&orgid={!Organization.Id}&userid={!User.Id}&companyname={!Organization.Name}&phone={!Organization.Phone}
+        1. Copy -> https://graphconnect.hardingpoint.com?embedded=true&orgid={!Organization.Id}&userid={!User.Id}&email={!User.Email}&phone={!User.Phone}&mobilephone={!User.MobilePhone}&companyname={!Organization.Name}&phone={!Organization.Phone}
         1. Paste in `Link URL`
         1. Click Save
     1. Choose Visibility
