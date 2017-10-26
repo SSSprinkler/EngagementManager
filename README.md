@@ -45,9 +45,11 @@ quicker it builds, learns (via AI), and reacts (via Engagement Manager) from you
             ![Harding Point Connect](https://static.wixstatic.com/media/983560_34b6e9735e6340d4bc37d4406c4ea43d~mv2_d_3104_1790_s_2.png/v1/fill/w_1730,h_998,al_c,usm_0.66_1.00_0.01/983560_34b6e9735e6340d4bc37d4406c4ea43d~mv2_d_3104_1790_s_2.png)
 
 
-1. <a href="https://login.salesforce.com/setup/ui/tab/integ/integrationTabWizard.jsp?retURL=%2Fsetup%2Fui%2Fcustomtabs.jsp%3Fsetupid%3DCustomTabs%26retURL%3D%252Fui%252Fsetup%252FSetup%253Fsetupid%253DDevTools&setupid=CustomTabs">Add Salesforce Tab</a>
+1. Add Salesforce Graph Connect Tab
+    1. Copy This ->  https://graphconnect.hardingpoint.com?embedded=true&orgid={!Organization.Id}&userid={!User.Id}&companyname={!Organization.Name}&phone={!Organization.Phone}
+    1. Right Click Link - "Open in new Tab" -> <a href="https://login.salesforce.com/setup/ui/tab/integ/integrationTabWizard.jsp?retURL=%2Fsetup%2Fui%2Fcustomtabs.jsp%3Fsetupid%3DCustomTabs%26retURL%3D%252Fui%252Fsetup%252FSetup%253Fsetupid%253DDevTools&setupid=CustomTabs">Add Salesforce Tab</a>
     1. Click Next
-    1. Tab Label: Graf Connect
+    1. Tab Label: Graph Connect
     1. Tab Style: Compass
         1. Click Next
     1. Button or Link URL
