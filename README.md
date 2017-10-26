@@ -37,6 +37,8 @@ quicker it builds, learns (via AI), and reacts (via Engagement Manager) from you
 
 1. Confirm Login -> <a href="https://graphconnect.hardingpoint.com">https://graphconnect.hardingpoint.com</a>
     1. Will automatically add Remote Site Setting For You
+        1. `Login via Salesforce - Normal Instance` - Use this for Developer or Production
+        1. `Login via Salesforce - Sandbox Instance` - Sandbox Access Only
 
 1. <a href="https://login.salesforce.com/setup/ui/tab/integ/integrationTabWizard.jsp?retURL=%2Fsetup%2Fui%2Fcustomtabs.jsp%3Fsetupid%3DCustomTabs%26retURL%3D%252Fui%252Fsetup%252FSetup%253Fsetupid%253DDevTools&setupid=CustomTabs">Add Salesforce Graph Connect Tab</a>
     1. Right Click Link - `Open in new Tab` -> <a href="https://login.salesforce.com/setup/ui/tab/integ/integrationTabWizard.jsp?retURL=%2Fsetup%2Fui%2Fcustomtabs.jsp%3Fsetupid%3DCustomTabs%26retURL%3D%252Fui%252Fsetup%252FSetup%253Fsetupid%253DDevTools&setupid=CustomTabs">Add Salesforce Tab</a>
