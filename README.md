@@ -34,16 +34,6 @@ quicker it builds, learns (via AI), and reacts (via Engagement Manager) from you
     1. Update `ApiToken` with `ENGAGEMENTGRAPH_APITOKEN` from Heroku Config Variables
     1. Update `graphdburl` with `GRAPHCONNECT_URL` from Heroku Config Variables (You can use any Neo4j URL)
     <!-- 1. Update `APIURL` with `ENGAGEMENTGRAPH_APIURL` from Heroku Config Variables -->
-            
-        
-1. Configure [`Graf Connect`](https://graphconnect.hardingpoint.com/)
-    1. Heroku - Click "Resources" Tab 
-    1. Click on "Engagement Framework"
-        1. Login with Salesforce
-        1. Select Account
-        1. Click [Connect to Graph] (Repeat for Contact/Opportunity/Case)
-            ![Harding Point Connect](https://static.wixstatic.com/media/983560_34b6e9735e6340d4bc37d4406c4ea43d~mv2_d_3104_1790_s_2.png/v1/fill/w_1730,h_998,al_c,usm_0.66_1.00_0.01/983560_34b6e9735e6340d4bc37d4406c4ea43d~mv2_d_3104_1790_s_2.png)
-
 
 1. Add Salesforce Graph Connect Tab
     1. Right Click Link - `Open in new Tab` -> <a href="https://login.salesforce.com/setup/ui/tab/integ/integrationTabWizard.jsp?retURL=%2Fsetup%2Fui%2Fcustomtabs.jsp%3Fsetupid%3DCustomTabs%26retURL%3D%252Fui%252Fsetup%252FSetup%253Fsetupid%253DDevTools&setupid=CustomTabs">Add Salesforce Tab</a>
@@ -56,6 +46,7 @@ quicker it builds, learns (via AI), and reacts (via Engagement Manager) from you
         1. Paste in `Link URL`
         1. Click Save
     1. Choose Visibility
+        1.  ![Harding Point Connect](https://static.wixstatic.com/media/983560_34b6e9735e6340d4bc37d4406c4ea43d~mv2_d_3104_1790_s_2.png/v1/fill/w_1730,h_998,al_c,usm_0.66_1.00_0.01/983560_34b6e9735e6340d4bc37d4406c4ea43d~mv2_d_3104_1790_s_2.png)
         
 
 # Completed 
