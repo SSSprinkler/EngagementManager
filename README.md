@@ -16,18 +16,18 @@ quicker it builds, learns (via AI), and reacts (via Engagement Manager) from you
 
 1. [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-1. <a href="https://login.salesforce.com" target="_new">Login to Salesforce</a> or <a href="https://developer.salesforce.com/signup" target="_new">Create Salesforce Developer Edition</a>
+1. <a href="https://login.salesforce.com" target="_new">Login to Salesforce</a> or <a href="https://developer.salesforce.com/signup" target="_new">Create Salesforce Developer Edition</a> <i>(Right Click Open In New Tab)</i>
 
-1. <a href="https://login.salesforce.com/lightning/switcher?destination=classic" target="_new">Switch to Salesforce Classic</a>
+1. <a href="https://login.salesforce.com/lightning/switcher?destination=classic" target="_new">Switch to Salesforce Classic</a> <i>(Right Click Open In New Tab)</i>
         
-1. <a href="https://login.salesforce.com/setup/ui/listCustomSettings.apexp" target="_new">Create a Salesforce Custom Setting</a>
+1. <a href="https://login.salesforce.com/setup/ui/listCustomSettings.apexp" target="_new">Create a Salesforce Custom Setting</a> <i>(Right Click Open In New Tab)</i>
     1. Create Salesforce.com Custom Setting `HardingPoint as Hierarchy/Public`
     1. Create New Custom Field in HardingPoint Custom Setting `Name:ApiToken Field Type: Text(255)`
     1. Create New Custom Field in HardingPoint Custom Setting `Name:GatewayToken Field Type: Text(255)`
     1. Create New Custom Field in HardingPoint Custom Setting `Name:graphdburl Field Type:URL Click Save`
     <!-- 1. Create New Custom Field in HardingPoint Custom Setting `Name:APIURL Field Type: URL` -->
 
-1. <a href="https://login.salesforce.com/setup/ui/listCustomSettings.apexp" target="_new">Update Custom Settings</a>
+1. <a href="https://login.salesforce.com/setup/ui/listCustomSettings.apexp" target="_new">Update Custom Settings</a> <i>(Right Click Open In New Tab)</i>
     1. Click on Manage
     1. Click on New Default Organization Level Value
     1. Update `GatewayToken` with `ENGAGEMENTGRAPH_GATEWAYTOKEN` from Heroku Config Variables
@@ -35,11 +35,11 @@ quicker it builds, learns (via AI), and reacts (via Engagement Manager) from you
     1. Update `graphdburl` with `GRAPHCONNECT_URL` from Heroku Config Variables (You can use any Neo4j URL)
     <!-- 1. Update `APIURL` with `ENGAGEMENTGRAPH_APIURL` from Heroku Config Variables -->
 
-1. Confirm Login -> <a href="https://graphconnect.hardingpoint.com">https://graphconnect.hardingpoint.com</a>
+1. Confirm Login -> <a href="https://graphconnect.hardingpoint.com">https://graphconnect.hardingpoint.com</a> <i>(Right Click Open In New Tab)</i>
     1. `Login via Salesforce - Normal Instance` - Use this for Developer or Production
     1. `Login via Salesforce - Sandbox Instance` - Sandbox Access Only
 
-1. <a href="https://login.salesforce.com/setup/ui/tab/integ/integrationTabWizard.jsp?retURL=%2Fsetup%2Fui%2Fcustomtabs.jsp%3Fsetupid%3DCustomTabs%26retURL%3D%252Fui%252Fsetup%252FSetup%253Fsetupid%253DDevTools&setupid=CustomTabs">Add Salesforce Graph Connect Tab</a>
+1. <a href="https://login.salesforce.com/setup/ui/tab/integ/integrationTabWizard.jsp?retURL=%2Fsetup%2Fui%2Fcustomtabs.jsp%3Fsetupid%3DCustomTabs%26retURL%3D%252Fui%252Fsetup%252FSetup%253Fsetupid%253DDevTools&setupid=CustomTabs">Add Salesforce Graph Connect Tab</a> <i>(Right Click Open In New Tab)</i>
     1. Right Click Link - `Open in new Tab` -> <a href="https://login.salesforce.com/setup/ui/tab/integ/integrationTabWizard.jsp?retURL=%2Fsetup%2Fui%2Fcustomtabs.jsp%3Fsetupid%3DCustomTabs%26retURL%3D%252Fui%252Fsetup%252FSetup%253Fsetupid%253DDevTools&setupid=CustomTabs">Add Salesforce Tab</a>
     1. Click `Next`
     1. Tab Label: `Graph Connect`
