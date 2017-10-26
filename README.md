@@ -21,12 +21,32 @@ quicker it builds, learns (via AI), and reacts (via Engagement Manager) from you
 1. <a href="https://login.salesforce.com/lightning/switcher?destination=classic" target="_new">Switch to Salesforce Classic</a> <i>(Right Click Open In New Tab)</i>
         
 1. <a href="https://login.salesforce.com/setup/ui/listCustomSettings.apexp" target="_new">Create a Salesforce Custom Setting</a> <i>(Right Click Open In New Tab)</i>
-    1. Click `New` Salesforce.com Custom Setting `HardingPoint` as Hierarchy/Public
-    1. Click `New` - Custom Field in HardingPoint Custom Setting Name: `ApiToken` Field Type: Text(255)
-    1. Click `Save & New` - Custom Field in HardingPoint Custom Setting Name: `GatewayToken` Field Type: Text(255) - Click `Save & New`
-    1. Click `Save & New` - Custom Field in HardingPoint Custom Setting Name: `graphdburl` Field Type:URL
-    1. Click `Save`
-    
+    1. Click `New` Salesforce.com Custom Setting 
+        1. Label: `HardingPoint` 
+        1. Object Name: `HardingPoint`
+        1. Setting Type: `Hierarchy/Public`
+        1. Visibility: Public
+        1. Click `Save`
+    1. Click `New` - Custom Field in HardingPoint Custom Setting
+        1. Type `Text`
+        1. Name: `ApiToken`
+        1. Field Length: `255`
+        1. Field Name: `ApiToken`
+        1. Click `Next`
+        1. Click `Save & New`
+    1. Choose Type `Text` 
+        1. Click `Next`
+        1. Field Label: `GatewayToken`
+        1. Length: `255`
+        1. Field Name: `GatewayToken`
+        1. Click `Next`
+        1. Click `Save & New`
+    1. Choose Type `URL`
+        1. Click `Next`
+        1. Field Label: `graphdburl`
+        1. Field Name: `graphdburl`
+        1. Click `Next`
+        1. Click `Save`
 
 1. <a href="https://login.salesforce.com/setup/ui/listCustomSettings.apexp" target="_new">Update Custom Settings</a> <i>(Right Click Open In New Tab)</i>
     1. Click on Manage
