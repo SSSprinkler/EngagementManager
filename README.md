@@ -1,3 +1,4 @@
+
 # Harding Point : Engagement Manager
  
  
@@ -14,6 +15,8 @@ quicker it builds, learns (via AI), and reacts (via Engagement Manager) from you
 
 ## Deployment & Configuration Instructions
 
+Must have active Heroku Development Account 
+
 1. [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 1. <a href="https://login.salesforce.com" target="_new">Login to Salesforce</a> or <a href="https://developer.salesforce.com/signup" target="_new">Create Salesforce Developer Edition</a> <i>(Right Click Open In New Tab)</i>
@@ -28,8 +31,8 @@ quicker it builds, learns (via AI), and reacts (via Engagement Manager) from you
         1. Visibility: Public
         1. Click `Save`
     1. Click `New` - Custom Field in HardingPoint Custom Setting
-        1. Type `Text`
-        1. Name: `ApiToken`
+        1. Choose Type `Text`
+        1. Field Label: `ApiToken`
         1. Field Length: `255`
         1. Field Name: `ApiToken`
         1. Click `Next`
@@ -51,9 +54,10 @@ quicker it builds, learns (via AI), and reacts (via Engagement Manager) from you
 1. <a href="https://login.salesforce.com/setup/ui/listCustomSettings.apexp" target="_new">Update Custom Settings</a> <i>(Right Click Open In New Tab)</i>
     1. Click on Manage
     1. Click on New Default Organization Level Value
-    1. Update `GatewayToken` with `ENGAGEMENTGRAPH_GATEWAYTOKEN` from Heroku Config Variables
     1. Update `ApiToken` with `ENGAGEMENTGRAPH_APITOKEN` from Heroku Config Variables
+    1. Update `GatewayToken` with `ENGAGEMENTGRAPH_GATEWAYTOKEN` from Heroku Config Variables
     1. Update `graphdburl` with `GRAPHCONNECT_URL` from Heroku Config Variables (You can use any Neo4j URL)
+    1. Click  `Save`
     <!-- 1. Update `APIURL` with `ENGAGEMENTGRAPH_APIURL` from Heroku Config Variables -->
 
 1. Confirm Login -> <a href="https://graphconnect.hardingpoint.com">https://graphconnect.hardingpoint.com</a> <i>(Right Click Open In New Tab)</i>
@@ -81,12 +85,17 @@ Ready to use Engagement Manager and Engagement Graph
 
 ## Engagement Manager
 
-###Credentials
+### Credentials - Get your credentials and login to your New Heroku App
 
+1. Goto `https://dashboard.heroku.com/apps/{YOUR APP Name}`
 1. Click on "Settings" in your App in Heroku
 1. Click Reveal Config Vars
-1. Admin User/Pwd - ENGAGEMENTGRAPH_ADMINUSER / ENGAGEMENTGRAPH_ADMINPWD 
-1. Read Only User/Pwd - ENGAGEMENTMANAGER_READONLYUSER / ENGAGEMENTMANAGER_READONLYPWD
+1. Access Your Blank Engagement Manager - `https://{Your App Name}.herokuapp.com/red/#
+  1. Copy & Paste Username next to: ENGAGEMENTGRAPH_ADMINUSER
+  1. Copy & Paste Password next to: ENGAGEMENTGRAPH_ADMINPWD
+1. Access Your Pre-Built Engagement Manager Demo - `https://{Your App Name}.herokuapp.com/red/#
+  1. Copy & Paste Demo Username next to: ENGAGEMENTMANAGER_READONLYUSER
+  1. Copy & Paste Demo Password next to: ENGAGEMENTMANAGER_READONLYPWD
 
 <hr/>
 
